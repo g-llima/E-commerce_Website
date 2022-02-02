@@ -1,12 +1,10 @@
-import React, { useState, useContext } from "react";
-import { CartContext } from "../Context/CartContext";
+import React, { useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import Scrollspy from "react-scrollspy";
 import "./styles/Navbar.css";
 
 function Navbar() {
   const [click, setClick] = useState(false);
-  const {cartLength} = useContext(CartContext)
 
   window.addEventListener("resize", () => setClick(false));
   return (
@@ -46,9 +44,9 @@ function Navbar() {
               <li className="navbar5__content__items__item">ITEM</li>
             </Link>
             <button className="navbar5__content__items__cartBtn">
-              <i className="fas fa-cart-plus"></i>
+              <i className="fas fa-cart-plus navCartIcon"></i>
               <div className="navbar5__content__items__cartBtn__quantity">
-                {cartLength}
+                10
               </div>
             </button>
           </Scrollspy>
