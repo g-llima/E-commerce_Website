@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import "./styles/Cards.css";
+import { useCart } from "react-use-cart";
 
 const products = [
   {
@@ -24,6 +25,16 @@ const products = [
 ];
 
 function Cards() {
+  const [isOnCart, setIsOnCart] = React.useState(new Set());
+  const {
+    isEmpty,
+    totalUniqueItems,
+    items,
+    updateItemQuantity,
+    removeItem,
+    addItem,
+  } = useCart();
+
   return (
     <div className="cards">
       {products.map((item, key) => (
@@ -33,7 +44,18 @@ function Cards() {
           productName={item.productName}
           productPrice={item.price}
           productDescription={item.productDesc}
-          btnName="Add to Cart"
+          btnName={isOnCart.has(key) ? "Remove from Cart" : "Add to Cart"}
+          clickBtn={() => {
+            const newIndices = new Set(isOnCart);
+            if (isOnCart.has(key)) {
+              newIndices.delete(key);
+              removeItem(item.id);
+            } else {
+              newIndices.add(key);
+              addItem(item);
+            }
+            setIsOnCart(newIndices);
+          }}
         />
       ))}
     </div>
