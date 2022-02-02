@@ -25,15 +25,7 @@ const products = [
 ];
 
 function Cards() {
-  const [isOnCart, setIsOnCart] = React.useState(new Set());
-  const {
-    isEmpty,
-    totalUniqueItems,
-    items,
-    updateItemQuantity,
-    removeItem,
-    addItem,
-  } = useCart();
+  const { addItem } = useCart();
 
   return (
     <div className="cards">
@@ -44,17 +36,9 @@ function Cards() {
           productName={item.productName}
           productPrice={item.price}
           productDescription={item.productDesc}
-          btnName={isOnCart.has(key) ? "Remove from Cart" : "Add to Cart"}
+          btnName="Add to Cart"
           clickBtn={() => {
-            const newIndices = new Set(isOnCart);
-            if (isOnCart.has(key)) {
-              newIndices.delete(key);
-              removeItem(item.id);
-            } else {
-              newIndices.add(key);
-              addItem(item);
-            }
-            setIsOnCart(newIndices);
+            addItem(item);
           }}
         />
       ))}
