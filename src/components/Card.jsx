@@ -6,7 +6,7 @@ function Card({
   productName,
   productPrice,
   productDescription,
-  btnClick,
+  addClick,
 }) {
   return (
     <div className="card">
@@ -18,9 +18,9 @@ function Card({
         </div>
         <p className="card__details__description">{productDescription}</p>
       </div>
-      <button onClick={btnClick} className="card__cartBtn">
-        Add to cart
-      </button>
+      <div className="card__btns">
+        <i className="fal fa-cart-plus addCartBtn" onClick={addClick}></i>
+      </div>
     </div>
   );
 }
