@@ -9,6 +9,7 @@ const products = [
     productImageLink:
       "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000",
     productName: "Apple Macbook",
+    productType: "TECHNOLOGY",
     price: 9900,
   },
   {
@@ -16,6 +17,7 @@ const products = [
     productImageLink:
       "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000",
     productName: "Elegant designed coffee plant for desktop and mac",
+    productType: "DECORATION",
     price: 1900,
   },
 ];
@@ -25,6 +27,14 @@ function convertProductName(str) {
     return str.substring(0, 41) + "...";
   }
   return str;
+}
+function covertProductPrice(value) {
+  value = value.toString();
+  return (
+    value.substring(0, value.length - 2) +
+    "," +
+    value.substring(value.length - 2)
+  );
 }
 
 function Cards() {
@@ -37,7 +47,8 @@ function Cards() {
           key={key}
           productImage={item.productImageLink}
           productName={convertProductName(item.productName)}
-          productPrice={item.price}
+          productPrice={covertProductPrice(item.price)}
+          productType={item.productType}
           productDescription={item.productDesc}
           btnName={inCart(item.id) ? "Remove from Cart" : "Add to Cart"}
           onCart={inCart(item.id)}

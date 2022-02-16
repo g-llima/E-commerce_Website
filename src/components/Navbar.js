@@ -4,13 +4,26 @@ import { useCart } from "react-use-cart";
 import Scrollspy from "react-scrollspy";
 import "./styles/Navbar.css";
 
+function covertProductPrice(value) {
+  value = value.toString();
+  return (
+    value.substring(0, value.length - 2) +
+    "," +
+    value.substring(value.length - 2)
+  );
+}
+function convertProductName(str) {
+  if (str.length >= 41) {
+    return str.substring(0, 41) + "...";
+  }
+  return str;
+}
+
 function Navbar() {
   const [click, setClick] = useState(false);
   const [clickCart, setClickCart] = useState(false);
   const { items, cartTotal, isEmpty, updateItemQuantity, totalUniqueItems } =
     useCart();
-
-  console.log(items);
 
   window.addEventListener("resize", () => setClick(false));
   return (
@@ -79,10 +92,10 @@ function Navbar() {
                   />
                   <div className="navbar5__content__mobileMenu__items__texts">
                     <h4 className="navbar5__content__mobileMenu__items__texts__name">
-                      {item.productName}
+                      {convertProductName(item.productName)}
                     </h4>
                     <p className="navbar5__content__mobileMenu__items__texts__price">
-                      $ {item.price}
+                      $ {covertProductPrice(item.price)}
                     </p>
                   </div>
 
@@ -111,7 +124,7 @@ function Navbar() {
               ))}
               <div className="navbar5__content__cart__total">
                 <p>Total: </p>
-                <p>$ {cartTotal}</p>
+                <p>$ {covertProductPrice(cartTotal)}</p>
               </div>
               <button className="navbar5__content__cart__inputs__buyBtn">
                 Buy now

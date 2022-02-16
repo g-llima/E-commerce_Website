@@ -21,46 +21,50 @@
 .card__details {
   padding: 1rem;
 }
-.card__details__product__title {
+.card__details__title {
   font-size: 22px;
   overflow-wrap: break-word;
   color: #333;
   max-width: 100%;
 }
-.card__details__product__price {
+.card__details__price {
   font-weight: bold;
+  font-size: 2.5rem;
+  color: #333;
 }
-.card__details__product {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+.card__details__title__type {
+  background: none;
+  margin: 1rem 0;
+  padding: 5px;
+  border-radius: 3px;
+  color: #0085ff;
+  font-weight: bold;
+  border: 1px solid #dadada;
+  cursor: pointer;
 }
 .card__details__cartBtn {
-  padding: 14px 1rem;
-  margin-top: 3rem;
+  padding: 10px 1rem;
+  margin-top: 1rem;
   position: relative;
   transition: all 0.2s;
   -o-transition: all 0.2s;
   -moz-transition: all 0.2s;
   -webkit-transition: all 0.2s;
   bottom: 0;
-  float: right;
-  background-color: #222;
-  color: white;
+  background: transparent;
+  color: #0085ff;
   letter-spacing: 1px;
   border-radius: 10px;
   outline: none;
-  border: 1px solid transparent;
+  border: 1px solid #0085ff;
   cursor: pointer;
 }
 .card__details__cartBtn:hover {
   bottom: 2px;
 }
 .card__onCard {
-  background: transparent;
-  border: 1px solid #222;
-  color: #222;
+  background: #0085ff;
+  color: white;
 }
 .card__details__cartBtn__icon {
   font-size: 16px;
