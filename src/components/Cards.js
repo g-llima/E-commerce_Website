@@ -25,7 +25,7 @@ const products = [
 ];
 
 function Cards() {
-  const { addItem } = useCart();
+  const { addItem, removeItem, inCart } = useCart();
 
   return (
     <div className="cards">
@@ -36,9 +36,9 @@ function Cards() {
           productName={item.productName}
           productPrice={item.price}
           productDescription={item.productDesc}
-          btnName="Add to Cart"
+          btnName={inCart(item.id) ? "Remove from Cart" : "Add to Cart"}
           clickBtn={() => {
-            addItem(item);
+            inCart(item.id) ? removeItem(item.id) : addItem(item);
           }}
         />
       ))}
