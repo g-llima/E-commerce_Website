@@ -43,7 +43,7 @@
   cursor: pointer;
 }
 .card__details__cartBtn {
-  padding: 10px 1rem;
+  padding: 8px 1rem;
   margin-top: 1rem;
   position: relative;
   transition: all 0.2s;
@@ -54,7 +54,7 @@
   background: transparent;
   color: #0085ff;
   letter-spacing: 1px;
-  border-radius: 10px;
+  border-radius: 5px;
   outline: none;
   border: 1px solid #0085ff;
   cursor: pointer;
@@ -65,8 +65,4 @@
 .card__onCard {
   background: #0085ff;
   color: white;
-}
-.card__details__cartBtn__icon {
-  font-size: 16px;
-  margin-left: 10px;
 }

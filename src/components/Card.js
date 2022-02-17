@@ -22,11 +22,6 @@ function Card({
           onClick={clickBtn}
         >
           {btnName}
-          <i
-            className={`${
-              onCart ? "fal fa-cart-arrow-down" : "fal fa-cart-plus"
-            } card__details__cartBtn__icon`}
-          ></i>
         </button>
       </div>
     </div>

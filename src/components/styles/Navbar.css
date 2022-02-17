@@ -25,6 +25,9 @@
   padding: 1rem 2rem;
   color: #333;
   transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
 }
 .navbar5__content__items__item:hover,
 .navbar5Active {
@@ -113,14 +116,22 @@
   cursor: pointer;
 }
 .navbar5__content__cart__inputs__buyBtn {
-  padding: 10px;
+  padding: 6px;
   margin: 10px;
-
+  position: relative;
+  bottom: 0;
   border: none;
-  background-color: #222;
+  background-color: #0085ff;
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -webkit-transition: all 0.1s ease-out;
+}
+.navbar5__content__cart__inputs__buyBtn:hover {
+  bottom: 2px;
 }
 @media only screen and (max-width: 768px) {
   .navbar5__content {
@@ -142,6 +153,9 @@
     visibility: hidden;
     overflow: hidden;
     transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
   }
   .nav5MobileActive {
     visibility: visible;

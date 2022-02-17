@@ -66,10 +66,12 @@ function Navbar() {
               className="navbar5__content__items__cartBtn"
               onClick={() => setClickCart(!clickCart)}
             >
-              <i className="fas fa-cart-plus navCartIcon"></i>
-              <div className="navbar5__content__items__cartBtn__quantity">
-                {totalUniqueItems}
-              </div>
+              <i className="far fa-shopping-cart navCartIcon"></i>
+              {!isEmpty && (
+                <div className="navbar5__content__items__cartBtn__quantity">
+                  {totalUniqueItems}
+                </div>
+              )}
             </button>
           </Scrollspy>
           <div
