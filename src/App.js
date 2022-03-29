@@ -1,7 +1,10 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import { CartProvider } from "react-use-cart";
-import Cards from "./components/Cards.js";
-import Navbar from "./components/Navbar.js";
+
+import Navbar from "./components/Navbar/Navbar.js";
+import HomePage from "./pages/HomePage.js";
+import SuccesBuy from "./pages/SuccessBuy";
 import "./App.css";
 
 function App() {
@@ -9,7 +12,10 @@ function App() {
     <>
       <CartProvider>
         <Navbar />
-        <Cards />
+        <Routes>
+          <Route path="*" element={<HomePage />} />
+          <Route path="/success" element={<SuccesBuy />} />
+        </Routes>
       </CartProvider>
     </>
   );

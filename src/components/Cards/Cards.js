@@ -1,6 +1,6 @@
 import React from "react";
-import Card from "./Card";
-import "./styles/Cards.css";
+import Card from "./Card/Card";
+import "./Cards.css";
 import { useCart } from "react-use-cart";
 
 const products = [

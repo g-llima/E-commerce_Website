@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { useCart } from "react-use-cart";
 import Scrollspy from "react-scrollspy";
-import "./styles/Navbar.css";
+import "./Navbar.css";
 
 function covertProductPrice(value) {
   value = value.toString();
@@ -19,6 +19,25 @@ function convertProductName(str) {
   return str;
 }
 
+const navbarItems = [
+  {
+    name: "ITEM",
+    link: "/",
+  },
+  {
+    name: "ITEM",
+    link: "/",
+  },
+  {
+    name: "ITEM",
+    link: "/",
+  },
+  {
+    name: "ITEM",
+    link: "/",
+  },
+];
+
 function Navbar() {
   const [click, setClick] = useState(false);
   const [clickCart, setClickCart] = useState(false);
@@ -26,8 +45,6 @@ function Navbar() {
     useCart();
 
   window.addEventListener("resize", () => setClick(false));
-
-  console.log(items);
 
   function buy() {
     fetch("http://localhost:5000/payment", {
@@ -60,6 +77,7 @@ function Navbar() {
     <>
       <header className="navbar5">
         <nav className="navbar5__content">
+          {/* NAVBAR LOGO */}
           <Link to="/">
             <img
               src="https://dummyimage.com/150x60/000/fff.png"
@@ -67,6 +85,7 @@ function Navbar() {
               onClick={() => setClick(false)}
             />
           </Link>
+
           <Scrollspy
             items={[
               "section-1",
@@ -80,23 +99,20 @@ function Navbar() {
               click ? "nav5MobileActive" : null
             }`}
           >
-            <Link to="/" onClick={() => setClick(!click)}>
-              <li className="navbar5__content__items__item">ITEM</li>
-            </Link>
-            <Link to="/" onClick={() => setClick(!click)}>
-              <li className="navbar5__content__items__item">ITEM</li>
-            </Link>
-            <Link to="/" onClick={() => setClick(!click)}>
-              <li className="navbar5__content__items__item">ITEM</li>
-            </Link>
-            <Link to="/" onClick={() => setClick(!click)}>
-              <li className="navbar5__content__items__item">ITEM</li>
-            </Link>
+            {navbarItems.map((item, index) => (
+              <Link key={index} to={item.link} onClick={() => setClick(!click)}>
+                <li className="navbar5__content__items__item">{item.name}</li>
+              </Link>
+            ))}
+
+            {/* CART ICON */}
             <button
               className="navbar5__content__items__cartBtn"
               onClick={() => setClickCart(!clickCart)}
             >
               <i className="far fa-shopping-cart navCartIcon"></i>
+
+              {/* IF CART IS NOT EMPTY SHOW DOT WITH THE AMOUNT OF PRODUCTS ABOVE*/}
               {!isEmpty && (
                 <div className="navbar5__content__items__cartBtn__quantity">
                   {totalUniqueItems}
@@ -104,6 +120,8 @@ function Navbar() {
               )}
             </button>
           </Scrollspy>
+
+          {/* HAMBURGUER MOBILE HEADER */}
           <div
             className="navbar5__content__mobileMenu"
             onClick={() => setClick(!click)}
@@ -111,6 +129,7 @@ function Navbar() {
             <i className={`fas fa-${click ? "times" : "bars"}`}></i>
           </div>
 
+          {/* SHOW PRODUCTS IN CART */}
           {!isEmpty && clickCart && (
             <div className="navbar5__content__cart">
               {items.map((item, index) => (
@@ -118,20 +137,24 @@ function Navbar() {
                   className="navbar5__content__mobileMenu__items"
                   key={index}
                 >
+                  {/* PRODUCT IMAGE */}
                   <img
                     className="navbar5__content__mobileMenu__items__img"
                     src={item.productImageLink}
                     alt={convertProductName(item.productName)}
                   />
+
+                  {/* PRODUCT TEXTS */}
                   <div className="navbar5__content__mobileMenu__items__texts">
                     <h4 className="navbar5__content__mobileMenu__items__texts__name">
                       {convertProductName(item.productName)}
                     </h4>
                     <p className="navbar5__content__mobileMenu__items__texts__price">
-                      $ {covertProductPrice(item.price)}
+                      R$ {covertProductPrice(item.price)}
                     </p>
                   </div>
 
+                  {/* DECREASE OR INCREASE PRODUCT QUANTITY */}
                   <div className="navbar5__content__cart__inputs">
                     <button
                       className="navbar5__content__cart__inputs__btn"
@@ -155,10 +178,14 @@ function Navbar() {
                   </div>
                 </div>
               ))}
+
+              {/* TOTAL PRICE */}
               <div className="navbar5__content__cart__total">
                 <p>Total: </p>
-                <p>$ {covertProductPrice(cartTotal)}</p>
+                <p>R$ {covertProductPrice(cartTotal)}</p>
               </div>
+
+              {/* BUY BUTTON */}
               <form method="post">
                 <button
                   className="navbar5__content__cart__inputs__buyBtn"
