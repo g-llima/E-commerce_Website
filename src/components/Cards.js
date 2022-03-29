@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "./Card";
 import "./styles/Cards.css";
 import { useCart } from "react-use-cart";
@@ -15,10 +15,10 @@ const products = [
   {
     id: 2,
     productImageLink:
-      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000",
-    productName: "Elegant designed coffee plant for desktop and mac",
-    productType: "DECORATION",
-    price: 1900,
+      "https://images-na.ssl-images-amazon.com/images/I/61+zywn98LL._SX798_BO1,204,203,200_.jpg",
+    productName: "Star Wars Art: Ralph McQuarrie Capa dura – Ilustrado",
+    productType: "BOOKS",
+    price: 131573,
   },
 ];
 

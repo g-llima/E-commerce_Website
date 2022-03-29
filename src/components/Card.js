@@ -12,7 +12,7 @@ function Card({
 }) {
   return (
     <div className="card">
-      <img className="card__img" src={productImage} />
+      <img className="card__img" src={productImage} alt={productName} />
       <div className="card__details">
         <h4 className="card__details__title">{productName}</h4>
         <button className="card__details__title__type">{productType}</button>

@@ -18,6 +18,29 @@ function convertProductName(str) {
   }
   return str;
 }
+function buy() {
+  fetch("http://localhost:5000/payment", {
+    headers: { "Content-Type": "application/json" },
+    method: "POST",
+    body: JSON.stringify({
+      items: [
+        { id: 1, quantity: 3 },
+        { id: 2, quantity: 1 },
+      ],
+    }),
+  })
+    .then((res) => {
+      if (res.ok) return res.json();
+      return res.json().then((json) => Promise.reject(json));
+    })
+    .then(({ url }) => {
+      //window.location = url;
+      console.log(url);
+    })
+    .catch((error) => {
+      console.log("Error ", error.error);
+    });
+}
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -91,6 +114,7 @@ function Navbar() {
                   <img
                     className="navbar5__content__mobileMenu__items__img"
                     src={item.productImageLink}
+                    alt={convertProductName(item.productName)}
                   />
                   <div className="navbar5__content__mobileMenu__items__texts">
                     <h4 className="navbar5__content__mobileMenu__items__texts__name">
@@ -128,9 +152,15 @@ function Navbar() {
                 <p>Total: </p>
                 <p>$ {covertProductPrice(cartTotal)}</p>
               </div>
-              <button className="navbar5__content__cart__inputs__buyBtn">
-                Buy now
-              </button>
+              <form method="post">
+                <button
+                  className="navbar5__content__cart__inputs__buyBtn"
+                  type="button"
+                  onClick={() => buy()}
+                >
+                  Buy now
+                </button>
+              </form>
             </div>
           )}
         </nav>
