@@ -18,28 +18,6 @@ function convertProductName(str) {
   }
   return str;
 }
-function buy() {
-  fetch("http://localhost:5000/payment", {
-    headers: { "Content-Type": "application/json" },
-    method: "POST",
-    body: JSON.stringify({
-      items: [
-        { id: 1, quantity: 3, price: 10000, name: "Learn React today" },
-        { id: 2, quantity: 10, price: 20000, name: "Learn CSS today" },
-      ],
-    }),
-  })
-    .then((res) => {
-      if (res.ok) return res.json();
-      return res.json().then((json) => Promise.reject(json));
-    })
-    .then(({ url }) => {
-      window.location = url;
-    })
-    .catch((error) => {
-      console.log("Error ", error.error);
-    });
-}
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -48,6 +26,35 @@ function Navbar() {
     useCart();
 
   window.addEventListener("resize", () => setClick(false));
+
+  console.log(items);
+
+  function buy() {
+    fetch("http://localhost:5000/payment", {
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+      body: JSON.stringify({
+        items: items.map((item) => {
+          return {
+            id: item.id,
+            quantity: item.quantity,
+            price: item.price,
+            name: item.productName,
+          };
+        }),
+      }),
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        return res.json().then((json) => Promise.reject(json));
+      })
+      .then(({ url }) => {
+        window.location = url;
+      })
+      .catch((error) => {
+        console.log("Error ", error.error);
+      });
+  }
 
   return (
     <>
