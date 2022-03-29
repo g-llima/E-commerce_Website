@@ -24,8 +24,8 @@ function buy() {
     method: "POST",
     body: JSON.stringify({
       items: [
-        { id: 1, quantity: 3 },
-        { id: 2, quantity: 1 },
+        { id: 1, quantity: 3, price: 10000, name: "Learn React today" },
+        { id: 2, quantity: 10, price: 20000, name: "Learn CSS today" },
       ],
     }),
   })
@@ -34,8 +34,7 @@ function buy() {
       return res.json().then((json) => Promise.reject(json));
     })
     .then(({ url }) => {
-      //window.location = url;
-      console.log(url);
+      window.location = url;
     })
     .catch((error) => {
       console.log("Error ", error.error);
@@ -49,6 +48,7 @@ function Navbar() {
     useCart();
 
   window.addEventListener("resize", () => setClick(false));
+
   return (
     <>
       <header className="navbar5">
