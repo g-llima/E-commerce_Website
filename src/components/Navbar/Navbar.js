@@ -39,12 +39,12 @@ const navbarItems = [
 ];
 
 function Navbar() {
-  const [click, setClick] = useState(false);
+  const [openNav, setopenNav] = useState(false);
   const [clickCart, setClickCart] = useState(false);
   const { items, cartTotal, isEmpty, updateItemQuantity, totalUniqueItems } =
     useCart();
 
-  window.addEventListener("resize", () => setClick(false));
+  window.addEventListener("resize", () => setopenNav(false));
 
   function buy() {
     fetch("http://localhost:5000/payment", {
@@ -78,12 +78,10 @@ function Navbar() {
       <header className="navbar5">
         <nav className="navbar5__content">
           {/* NAVBAR LOGO */}
-          <Link to="/">
-            <img
-              src="https://dummyimage.com/150x60/000/fff.png"
-              alt="BRAND LOGO"
-              onClick={() => setClick(false)}
-            />
+          <Link to="/" onClick={() => setopenNav(false)}>
+            <h1 className="navbar5__content__logo">
+              <span>ENG</span>COM
+            </h1>
           </Link>
 
           <Scrollspy
@@ -96,37 +94,46 @@ function Navbar() {
             ]}
             currentClassName="navbar5Active"
             className={`navbar5__content__items ${
-              click ? "nav5MobileActive" : null
+              openNav ? "nav5MobileActive" : null
             }`}
           >
+            {/* HEADER ITEMS */}
             {navbarItems.map((item, index) => (
-              <Link key={index} to={item.link} onClick={() => setClick(!click)}>
-                <li className="navbar5__content__items__item">{item.name}</li>
+              <Link
+                key={index}
+                to={item.link}
+                onClick={() => setopenNav(!openNav)}
+                className="navbar5__content__items__item"
+              >
+                <li>{item.name}</li>
               </Link>
             ))}
-
-            {/* CART ICON */}
-            <button
-              className="navbar5__content__items__cartBtn"
-              onClick={() => setClickCart(!clickCart)}
-            >
-              <i className="far fa-shopping-cart navCartIcon"></i>
-
-              {/* IF CART IS NOT EMPTY SHOW DOT WITH THE AMOUNT OF PRODUCTS ABOVE*/}
-              {!isEmpty && (
-                <div className="navbar5__content__items__cartBtn__quantity">
-                  {totalUniqueItems}
-                </div>
-              )}
-            </button>
           </Scrollspy>
+
+          {/* CART ICON */}
+          <button
+            className="navbar5__content__items__cartBtn"
+            onClick={() => {
+              setClickCart(!clickCart);
+              setopenNav(false);
+            }}
+          >
+            <i className="fa-solid fa-cart-shopping navCartIcon"></i>
+
+            {/* IF CART IS NOT EMPTY SHOW DOT WITH THE AMOUNT OF PRODUCTS ABOVE*/}
+            {!isEmpty && (
+              <div className="navbar5__content__items__cartBtn__quantity">
+                {totalUniqueItems}
+              </div>
+            )}
+          </button>
 
           {/* HAMBURGUER MOBILE HEADER */}
           <div
             className="navbar5__content__mobileMenu"
-            onClick={() => setClick(!click)}
+            onClick={() => setopenNav(!openNav)}
           >
-            <i className={`fas fa-${click ? "times" : "bars"}`}></i>
+            <i className={`fas fa-${openNav ? "times" : "bars"}`}></i>
           </div>
 
           {/* SHOW PRODUCTS IN CART */}
