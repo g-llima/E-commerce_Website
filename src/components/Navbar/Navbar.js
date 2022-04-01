@@ -40,7 +40,7 @@ const navbarItems = [
 
 function Navbar() {
   const [openNav, setopenNav] = useState(false);
-  const [clickCart, setClickCart] = useState(true);
+  const [clickCart, setClickCart] = useState(false);
   const {
     items,
     cartTotal,
@@ -84,10 +84,13 @@ function Navbar() {
   return (
     <>
       <header className="navbar5">
-        <div className="navbar5__cart">
+        <div className={`navbar5__cart ${clickCart ? "activeCart" : null}`}>
           <div className="navbar5__cart__header">
             <h3>SEU CARRINHO</h3>
-            <i className="fa-solid fa-xmark navbar5__cart__header__icon"></i>
+            <i
+              className="fa-solid fa-xmark navbar5__cart__header__icon"
+              onClick={() => setClickCart(false)}
+            ></i>
           </div>
 
           <div className="navbar5__cart__products">
@@ -166,10 +169,12 @@ function Navbar() {
             className="navbar5__content__items__cartBtn"
             onClick={() => {
               setClickCart(!clickCart);
-              setopenNav(false);
             }}
           >
-            <i className="fa-solid fa-cart-shopping navCartIcon"></i>
+            <i
+              className="fa-solid fa-cart-shopping navCartIcon"
+              onClick={() => setopenNav(false)}
+            ></i>
 
             {/* IF CART IS NOT EMPTY SHOW DOT WITH THE AMOUNT OF PRODUCTS ABOVE*/}
             {!isEmpty && (

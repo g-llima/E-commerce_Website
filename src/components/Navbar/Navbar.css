@@ -11,6 +11,7 @@
   align-items: center;
   padding: 0 2rem;
   margin: 0 auto;
+  overflow: hidden;
 }
 .navbar5__cart {
   position: fixed;
@@ -19,9 +20,21 @@
   width: 20%;
   min-width: 320px;
   z-index: 99999;
+  right: -25rem;
   background: white;
   height: 100vh;
   box-shadow: 0 2px 3px #dbdbdb;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+}
+.activeCart {
+  right: 0px;
+  opacity: 1;
+  visibility: visible;
 }
 .navbar5__cart__header {
   padding: 2rem;
@@ -34,6 +47,14 @@
 }
 .navbar5__cart__header__icon {
   font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+}
+.navbar5__cart__header__icon:hover {
+  transform: rotate(90deg);
 }
 .navbar5__cart__products {
   display: flex;
