@@ -13,8 +13,8 @@ function covertProductPrice(value) {
   );
 }
 function convertProductName(str) {
-  if (str.length >= 41) {
-    return str.substring(0, 41) + "...";
+  if (str.length >= 38) {
+    return str.substring(0, 38) + "...";
   }
   return str;
 }
@@ -41,8 +41,14 @@ const navbarItems = [
 function Navbar() {
   const [openNav, setopenNav] = useState(false);
   const [clickCart, setClickCart] = useState(true);
-  const { items, cartTotal, isEmpty, updateItemQuantity, totalUniqueItems } =
-    useCart();
+  const {
+    items,
+    cartTotal,
+    isEmpty,
+    updateItemQuantity,
+    totalUniqueItems,
+    removeItem,
+  } = useCart();
 
   window.addEventListener("resize", () => setopenNav(false));
 
@@ -92,6 +98,10 @@ function Navbar() {
                     src={item.productImageLink}
                     alt={convertProductName(item.productName)}
                   />
+                  <i
+                    className="fa-solid fa-xmark navbar5__cart__products__imgWrapper__removeicon"
+                    onClick={() => removeItem(item.id)}
+                  ></i>
                 </div>
 
                 <div className="navbar5__cart__products__texts">

@@ -48,7 +48,30 @@
 .navbar5__cart__products__imgWrapper {
   width: 100px;
   height: auto;
+  position: relative;
   flex: 40%;
+}
+.navbar5__cart__products__imgWrapper__removeicon {
+  position: absolute;
+  left: -10px;
+  bottom: 0;
+  background: crimson;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  opacity: .5;
+  transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  -moz-transition: all 0.1s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+}
+.navbar5__cart__products__container:hover .navbar5__cart__products__imgWrapper__removeicon {
+  opacity: 1;
 }
 .navbar5__cart__products__imgWrapper img {
   width: 100%;
