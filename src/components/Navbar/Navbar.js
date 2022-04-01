@@ -84,22 +84,26 @@ function Navbar() {
             <i className="fa-solid fa-xmark navbar5__cart__header__icon"></i>
           </div>
           <div className="navbar5__cart__products">
-            <div className="navbar5__cart__products__imgWrapper">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0526/4123/5093/products/TechTShirt_Azul-01_df68f358-551d-4b89-aad1-c9ddf13a0356_450x.jpg?v=1647210916"
-                alt="productImage"
-              />
-            </div>
+            {items.map((item, index) => (
+              <div className="navbar5__cart__products__container" key={index}>
+                <div className="navbar5__cart__products__imgWrapper">
+                  <img
+                    src={item.productImageLink}
+                    alt={convertProductName(item.productName)}
+                  />
+                </div>
 
-            <div className="navbar5__cart__products__texts">
-              <p>Tech T-Shirt Feminina</p>
-              <div className="navbar5__cart__products__texts__bottom">
-                <p>Qnt: 1</p>
-                <p className="navbar5__cart__products__texts__bottom__price">
-                  R$ 129,00
-                </p>
+                <div className="navbar5__cart__products__texts">
+                  <p>{convertProductName(item.productName)}</p>
+                  <div className="navbar5__cart__products__texts__bottom">
+                    <p>Qnt: {item.quantity}</p>
+                    <p className="navbar5__cart__products__texts__bottom__price">
+                      R$ {covertProductPrice(item.price)}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
 
