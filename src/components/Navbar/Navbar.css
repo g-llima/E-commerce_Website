@@ -69,6 +69,10 @@
 .navbar5__cart__products__texts__bottom__price {
   font-size: 16px;
 }
+.navbar5__cart__products__valorTotal {
+  padding: 10px 2rem;
+  text-align: right;
+}
 .navbar5__cart__footer {
   display: flex;
   position: absolute;

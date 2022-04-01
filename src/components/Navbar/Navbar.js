@@ -105,6 +105,10 @@ function Navbar() {
                 </div>
               </div>
             ))}
+
+            <p className="navbar5__cart__products__valorTotal">
+              Valor total: R$ {covertProductPrice(cartTotal)}
+            </p>
           </div>
 
           <div className="navbar5__cart__footer">
