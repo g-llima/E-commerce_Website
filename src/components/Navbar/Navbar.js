@@ -83,6 +83,7 @@ function Navbar() {
             <h3>SEU CARRINHO</h3>
             <i className="fa-solid fa-xmark navbar5__cart__header__icon"></i>
           </div>
+
           <div className="navbar5__cart__products">
             {items.map((item, index) => (
               <div className="navbar5__cart__products__container" key={index}>
@@ -104,6 +105,10 @@ function Navbar() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="navbar5__cart__footer">
+            <button onClick={() => buy()}>COMPRAR</button>
           </div>
         </div>
 
