@@ -109,6 +109,21 @@ function Navbar() {
 
                 <div className="navbar5__cart__products__texts">
                   <p>{convertProductName(item.productName)}</p>
+                  <div className="navbar5__cart__products__texts__quantityBtns">
+                    <i
+                      className="fa-solid fa-angle-up"
+                      onClick={() =>
+                        updateItemQuantity(item.id, item.quantity + 1)
+                      }
+                    ></i>
+                    <i
+                      className="fa-solid fa-angle-down"
+                      onClick={() =>
+                        updateItemQuantity(item.id, item.quantity - 1)
+                      }
+                    ></i>
+                  </div>
+
                   <div className="navbar5__cart__products__texts__bottom">
                     <p>Qnt: {item.quantity}</p>
                     <p className="navbar5__cart__products__texts__bottom__price">
