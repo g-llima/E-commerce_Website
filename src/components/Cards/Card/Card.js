@@ -1,28 +1,18 @@
 import React from "react";
 import "./Card.css";
 
-function Card({
-  productImage,
-  productName,
-  productPrice,
-  productType,
-  btnName,
-  clickBtn,
-  onCart,
-}) {
+function Card({ productImage, productName, productPrice, clickBtn }) {
   return (
     <div className="card">
-      <img className="card__img" src={productImage} alt={productName} />
+      <div className="card__img__container">
+        <img className="card__img" src={productImage} alt={productName} />
+        <button className="card__details__cartBtn" onClick={clickBtn}>
+          Quick View
+        </button>
+      </div>
       <div className="card__details">
         <h4 className="card__details__title">{productName}</h4>
-        <button className="card__details__title__type">{productType}</button>
-        <p className="card__details__price">$ {productPrice}</p>
-        <button
-          className={`card__details__cartBtn ${onCart ? "card__onCard" : null}`}
-          onClick={clickBtn}
-        >
-          {btnName}
-        </button>
+        <p className="card__details__price">R$ {productPrice}</p>
       </div>
     </div>
   );

@@ -40,7 +40,7 @@ const navbarItems = [
 
 function Navbar() {
   const [openNav, setopenNav] = useState(false);
-  const [clickCart, setClickCart] = useState(false);
+  const [clickCart, setClickCart] = useState(true);
   const { items, cartTotal, isEmpty, updateItemQuantity, totalUniqueItems } =
     useCart();
 
@@ -73,9 +73,36 @@ function Navbar() {
       });
   }
 
+  console.log(items);
+
   return (
     <>
       <header className="navbar5">
+        <div className="navbar5__cart">
+          <div className="navbar5__cart__header">
+            <h3>SEU CARRINHO</h3>
+            <i className="fa-solid fa-xmark navbar5__cart__header__icon"></i>
+          </div>
+          <div className="navbar5__cart__products">
+            <div className="navbar5__cart__products__imgWrapper">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0526/4123/5093/products/TechTShirt_Azul-01_df68f358-551d-4b89-aad1-c9ddf13a0356_450x.jpg?v=1647210916"
+                alt="productImage"
+              />
+            </div>
+
+            <div className="navbar5__cart__products__texts">
+              <p>Tech T-Shirt Feminina</p>
+              <div className="navbar5__cart__products__texts__bottom">
+                <p>Qnt: 1</p>
+                <p className="navbar5__cart__products__texts__bottom__price">
+                  R$ 129,00
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <nav className="navbar5__content">
           {/* NAVBAR LOGO */}
           <Link to="/" onClick={() => setopenNav(false)}>
@@ -111,6 +138,7 @@ function Navbar() {
           </Scrollspy>
 
           {/* CART ICON */}
+
           <button
             className="navbar5__content__items__cartBtn"
             onClick={() => {
@@ -136,7 +164,7 @@ function Navbar() {
             <i className={`fas fa-${openNav ? "times" : "bars"}`}></i>
           </div>
 
-          {/* SHOW PRODUCTS IN CART */}
+          {/* SHOW PRODUCTS IN CART
           {!isEmpty && clickCart && (
             <div className="navbar5__content__cart">
               {items.map((item, index) => (
@@ -144,14 +172,14 @@ function Navbar() {
                   className="navbar5__content__mobileMenu__items"
                   key={index}
                 >
-                  {/* PRODUCT IMAGE */}
+
                   <img
                     className="navbar5__content__mobileMenu__items__img"
                     src={item.productImageLink}
                     alt={convertProductName(item.productName)}
                   />
 
-                  {/* PRODUCT TEXTS */}
+      
                   <div className="navbar5__content__mobileMenu__items__texts">
                     <h4 className="navbar5__content__mobileMenu__items__texts__name">
                       {convertProductName(item.productName)}
@@ -161,7 +189,7 @@ function Navbar() {
                     </p>
                   </div>
 
-                  {/* DECREASE OR INCREASE PRODUCT QUANTITY */}
+     
                   <div className="navbar5__content__cart__inputs">
                     <button
                       className="navbar5__content__cart__inputs__btn"
@@ -186,13 +214,13 @@ function Navbar() {
                 </div>
               ))}
 
-              {/* TOTAL PRICE */}
+             
               <div className="navbar5__content__cart__total">
                 <p>Total: </p>
                 <p>R$ {covertProductPrice(cartTotal)}</p>
               </div>
 
-              {/* BUY BUTTON */}
+             
               <form method="post">
                 <button
                   className="navbar5__content__cart__inputs__buyBtn"
@@ -203,7 +231,7 @@ function Navbar() {
                 </button>
               </form>
             </div>
-          )}
+          )} */}
         </nav>
       </header>
     </>

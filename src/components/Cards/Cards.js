@@ -7,24 +7,29 @@ const products = [
   {
     id: 1,
     productImageLink:
-      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000",
-    productName: "Apple Macbook",
-    productType: "TECHNOLOGY",
-    price: 9900,
+      "https://ih1.redbubble.net/image.3100721225.5642/gpt,mens,750x1000,black,small-pad,750x1000,f8f8f8.u1.jpg",
+    productName: "Ultra Masculinity GigaChad Graphic T-Shirt",
+    price: 14738,
   },
   {
     id: 2,
     productImageLink:
-      "https://images-na.ssl-images-amazon.com/images/I/61+zywn98LL._SX798_BO1,204,203,200_.jpg",
-    productName: "Star Wars Art: Ralph McQuarrie Capa dura – Ilustrado",
-    productType: "BOOKS",
-    price: 131573,
+      "https://cdn.shopify.com/s/files/1/0526/4123/5093/products/TechTShirt_Azul-01_df68f358-551d-4b89-aad1-c9ddf13a0356_450x.jpg?v=1647210916",
+    productName: "Tech T-Shirt Feminina",
+    price: 12900,
+  },
+  {
+    id: 3,
+    productImageLink:
+      "https://technext.github.io/cozastore/images/product-14.jpg",
+    productName: "Pretty Little Thing",
+    price: 5479,
   },
 ];
 
 function convertProductName(str) {
-  if (str.length >= 41) {
-    return str.substring(0, 41) + "...";
+  if (str.length >= 30) {
+    return str.substring(0, 30) + "...";
   }
   return str;
 }

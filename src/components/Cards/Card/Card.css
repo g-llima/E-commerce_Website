@@ -1,10 +1,8 @@
 .card {
   width: 300px;
-  border-radius: 3px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0px 2px 5px #b4b4b4;
   position: relative;
   margin: 0 2rem;
   transition: all 0.3s;
@@ -12,57 +10,58 @@
   -moz-transition: all 0.3s;
   -webkit-transition: all 0.3s;
 }
+.card__img__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
 .card__img {
   width: 100%;
-  max-height: 200px;
+  height: 400px;
   object-fit: cover;
+  box-shadow: 0px 2px 5px var(--color-gray);
   border-radius: 3px;
+
+  transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
 }
 .card__details {
-  padding: 1rem;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #777;
 }
 .card__details__title {
-  font-size: 22px;
   overflow-wrap: break-word;
-  color: #333;
-  max-width: 100%;
 }
 .card__details__price {
-  font-weight: bold;
-  font-size: 2.5rem;
-  color: #333;
-}
-.card__details__title__type {
-  background: none;
-  margin: 1rem 0;
-  padding: 5px;
-  border-radius: 3px;
-  color: #0085ff;
-  font-weight: bold;
-  border: 1px solid #dadada;
-  cursor: pointer;
+  margin-top: 6px;
+  color: #222;
 }
 .card__details__cartBtn {
   padding: 8px 1rem;
-  margin-top: 1rem;
-  position: relative;
-  transition: all 0.2s;
-  -o-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
+  position: absolute;
+  transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
   bottom: 0;
-  background: transparent;
-  color: #0085ff;
+  opacity: 0;
+  background: white;
+  color: var(--color-dark);
   letter-spacing: 1px;
   border-radius: 5px;
   outline: none;
-  border: 1px solid #0085ff;
+  border: none;
   cursor: pointer;
 }
-.card__details__cartBtn:hover {
-  bottom: 2px;
+.card__img__container:hover .card__details__cartBtn {
+  bottom: 2rem;
+  opacity: 1;
 }
-.card__onCard {
-  background: #0085ff;
-  color: white;
+.card__img__container:hover .card__img {
+  transform: scale(1.2);
 }
