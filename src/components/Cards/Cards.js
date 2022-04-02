@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./Card/Card";
 import "./Cards.css";
 import { useCart } from "react-use-cart";
+import ProductPreview from "../ProductPreview/ProductPreview";
 
 const products = [
   {
@@ -44,23 +45,36 @@ function covertProductPrice(value) {
 
 function Cards() {
   const { addItem, removeItem, inCart } = useCart();
+  const [isOpenPreview, setIsOpenPreview] = useState(-1);
 
   return (
     <div className="cards">
       {products.map((item, key) => (
-        <Card
-          key={key}
-          productImage={item.productImageLink}
-          productName={convertProductName(item.productName)}
-          productPrice={covertProductPrice(item.price)}
-          productType={item.productType}
-          productDescription={item.productDesc}
-          btnName={inCart(item.id) ? "Remove from Cart" : "Add to Cart"}
-          onCart={inCart(item.id)}
-          clickBtn={() => {
-            inCart(item.id) ? removeItem(item.id) : addItem(item);
-          }}
-        />
+        <>
+          <Card
+            key={key}
+            productImage={item.productImageLink}
+            productName={convertProductName(item.productName)}
+            productPrice={covertProductPrice(item.price)}
+            productType={item.productType}
+            productDescription={item.productDesc}
+            btnName={inCart(item.id) ? "Remove from Cart" : "Add to Cart"}
+            onCart={inCart(item.id)}
+            // clickBtn={() => {
+            //   inCart(item.id) ? removeItem(item.id) : addItem(item);
+            // }}
+            clickBtn={() =>
+              isOpenPreview === key
+                ? setIsOpenPreview(-1)
+                : setIsOpenPreview(key)
+            }
+          />
+          {isOpenPreview === key && (
+            <ProductPreview
+              productName={convertProductName(item.productName)}
+            />
+          )}
+        </>
       ))}
     </div>
   );
