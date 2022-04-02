@@ -42,6 +42,23 @@ function ProductPreview({ product, clickBackground }) {
             <p className="productPreview__content__body__description">
               {product.productDescription}
             </p>
+
+            <hr className="productPreview__line" />
+
+            <div className="productPreview__content__body__colors">
+              <p>Cor:</p>
+              <div className="productPreview__content__body__colors__items">
+                <span
+                  className="productPreview__color__selected"
+                  style={{ backgroundColor: "#14140F" }}
+                >
+                  <i className="fa-solid fa-check"></i>
+                </span>
+                <span style={{ backgroundColor: "#053D38" }}></span>
+                <span style={{ backgroundColor: "#F26800" }}></span>
+                <span style={{ backgroundColor: "crimson" }}></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
