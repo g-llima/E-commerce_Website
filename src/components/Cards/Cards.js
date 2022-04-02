@@ -72,6 +72,7 @@ function Cards() {
           {isOpenPreview === key && (
             <ProductPreview
               productName={convertProductName(item.productName)}
+              clickBackground={() => setIsOpenPreview(-1)}
             />
           )}
         </>
