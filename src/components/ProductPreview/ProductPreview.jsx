@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./ProductPreview.css";
 
@@ -18,6 +18,8 @@ function convertProductName(str) {
 }
 
 function ProductPreview({ product, clickBackground }) {
+  const [colorSelected, setColorSelected] = useState(0);
+
   return (
     <>
       <div className="productPreviewBackground" onClick={clickBackground}></div>
@@ -48,15 +50,20 @@ function ProductPreview({ product, clickBackground }) {
             <div className="productPreview__content__body__colors">
               <p>Cor:</p>
               <div className="productPreview__content__body__colors__items">
-                <span
-                  className="productPreview__color__selected"
-                  style={{ backgroundColor: "#14140F" }}
-                >
-                  <i className="fa-solid fa-check"></i>
-                </span>
-                <span style={{ backgroundColor: "#053D38" }}></span>
-                <span style={{ backgroundColor: "#F26800" }}></span>
-                <span style={{ backgroundColor: "crimson" }}></span>
+                {product.colors.map((item, index) => (
+                  <span
+                    key={index}
+                    className={
+                      colorSelected === index
+                        ? "productPreview__color__selected"
+                        : null
+                    }
+                    style={{ backgroundColor: item }}
+                    onClick={() => setColorSelected(index)}
+                  >
+                    <i className="fa-solid fa-check"></i>
+                  </span>
+                ))}
               </div>
             </div>
           </div>

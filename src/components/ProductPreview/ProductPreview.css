@@ -85,10 +85,16 @@
 .productPreview__content__body__colors__items span i{
     font-size: 18px;
     opacity: 0;
-}
-.productPreview__color__selected {
-    filter: brightness(300%);
+    position: relative;
+    bottom: 10px;
+
+    transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -webkit-transition: all .1s ease-in;
 }
 .productPreview__color__selected i {
     opacity: 1 !important;
+    color: white;
+    bottom: 0 !important;
 }
