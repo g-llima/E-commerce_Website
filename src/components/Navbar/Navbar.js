@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Effect } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { useCart } from "react-use-cart";
 import Scrollspy from "react-scrollspy";
@@ -49,8 +49,17 @@ function Navbar() {
     totalUniqueItems,
     removeItem,
   } = useCart();
+  const [scrolled, setScrolled] = useState(false);
 
   window.addEventListener("resize", () => setopenNav(false));
+  window.addEventListener("scroll", () => {
+    if (window.scrollY >= 50 && scrolled === false) {
+      setScrolled(true);
+    }
+    if (window.scrollY < 50 && scrolled === true) {
+      setScrolled(false);
+    }
+  });
 
   function buy() {
     fetch("http://localhost:5000/payment", {
@@ -142,7 +151,7 @@ function Navbar() {
           </div>
         </div>
 
-        <nav className="navbar5__content">
+        <nav className={`navbar5__content ${scrolled && "navbar5__scrolled"}`}>
           {/* NAVBAR LOGO */}
           <Link to="/" onClick={() => setopenNav(false)}>
             <h1 className="navbar5__content__logo">
