@@ -19,6 +19,7 @@ app.post("/payment", async (req, res) => {
             currency: "brl",
             product_data: {
               name: item.name,
+              images: [item.imgUrl],
             },
             unit_amount: item.price,
           },
@@ -45,6 +46,7 @@ app.post("/payment/solo", async (req, res) => {
             currency: "brl",
             product_data: {
               name: req.body.name,
+              images: [req.body.imgUrl],
             },
             unit_amount: req.body.price,
           },

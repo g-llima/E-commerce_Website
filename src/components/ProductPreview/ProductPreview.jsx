@@ -32,6 +32,7 @@ function ProductPreview({ product, clickBackground }) {
         quantity: 1,
         price: product.price,
         name: product.productName,
+        imgUrl: product.productImageLink,
       }),
     })
       .then((res) => {

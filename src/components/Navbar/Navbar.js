@@ -72,6 +72,7 @@ function Navbar() {
             quantity: item.quantity,
             price: item.price,
             name: item.productName,
+            imgUrl: item.productImageLink,
           };
         }),
       }),
@@ -87,6 +88,8 @@ function Navbar() {
         console.log("Error ", error.error);
       });
   }
+
+  console.log(items);
 
   return (
     <>
