@@ -18,6 +18,7 @@ function convertProductName(str) {
 }
 
 function ProductPreview({ product, clickBackground }) {
+  const [inputQuantity, setInputQuantity] = useState(1);
   const [colorSelected, setColorSelected] = useState(0);
 
   return (
@@ -72,9 +73,17 @@ function ProductPreview({ product, clickBackground }) {
             <p>Quantidade:</p>
 
             <div className="productPreview__content__body__quantity">
-              <i className="fa-solid fa-minus"></i>
-              <h2>1</h2>
-              <i className="fa-solid fa-plus"></i>
+              <i
+                className="fa-solid fa-minus"
+                onClick={() =>
+                  inputQuantity !== 1 && setInputQuantity(inputQuantity - 1)
+                }
+              ></i>
+              <h2>{inputQuantity}</h2>
+              <i
+                className="fa-solid fa-plus"
+                onClick={() => setInputQuantity(inputQuantity + 1)}
+              ></i>
             </div>
 
             <div className="productPreview__content__body__buttons">
