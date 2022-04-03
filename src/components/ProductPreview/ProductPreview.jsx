@@ -56,10 +56,7 @@ function ProductPreview({ product, clickBackground }) {
           </div>
 
           <div className="productPreview__content__body">
-            <h1
-              className="productPreview__content__body__title"
-              style={{ fontSize: convertProductName(product.productName) }}
-            >
+            <h1 className="productPreview__content__body__title">
               {product.productName}
             </h1>
 

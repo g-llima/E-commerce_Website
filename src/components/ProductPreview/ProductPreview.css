@@ -1,6 +1,6 @@
 .productPreviewBackground {
     background: black;
-    opacity: .5;
+    opacity: 0.5;
     position: fixed;
     top: 0;
     left: 0;
@@ -14,8 +14,10 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 70%;
-    height: 80%;
+    width: 90%;
+    max-width: 1400px;
+    height: 90%;
+    max-height: 800px;
     border-radius: 5px;
     z-index: 99999;
 }
@@ -43,12 +45,13 @@
 }
 .productPreview__content__body {
     height: 100%;
+    min-width: 300px;
     padding: 3rem;
     flex: 50%;
     color: var(--color-gray);
 }
 .productPreview__content__body__title {
-    font-size: 3rem;
+    font-size: calc(1rem + 1.5vw);
 }
 .productPreview__content__body__price {
     font-size: 18px;
@@ -71,7 +74,7 @@
     display: flex;
     margin-top: 1rem;
     width: 40%;
-    min-width: 150px;
+    min-width: 200px;
     justify-content: space-between;
 }
 .productPreview__content__body__colors__items span {
@@ -102,14 +105,18 @@
 .productPreview__content__body__buttons {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 }
 .productPreview__content__body__buttons button {
     padding: 10px 1rem;
+    font-size: calc(10px + 0.2vw);
     outline: none;
     cursor: pointer;
     position: relative;
     bottom: 0;
+    min-width: 200px;
+    margin-bottom: 1rem;
     width: 40%;
     transition: all 0.1s ease-in;
     -o-transition: all 0.1s ease-in;
@@ -125,10 +132,23 @@
 .productPreview__content__body__buttons__addCart {
     background: transparent;
     color: var(--color-dark);
-    margin-right: 1rem;
     border-radius: 3px;
     border: 1px solid var(--color-dark);
 }
 .productPreview__content__body__buttons button:hover {
     bottom: 3px;
+}
+@media only screen and (max-width: 768px) {
+    .productPreview__content {
+        flex-direction: column;
+    }
+    .productPreview__content__imgs__container {
+        width: 100%;
+        margin: 0;
+    }
+    .productPreview__content__imgs__container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
