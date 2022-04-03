@@ -66,6 +66,17 @@ function ProductPreview({ product, clickBackground }) {
                 ))}
               </div>
             </div>
+
+            <hr className="productPreview__line" />
+
+            <div className="productPreview__content__body__buttons">
+              <button className="productPreview__content__body__buttons__buy">
+                COMPRAR
+              </button>
+              <button className="productPreview__content__body__buttons__addCart">
+                ADICIONAR NO CARRINHO
+              </button>
+            </div>
           </div>
         </div>
       </div>
