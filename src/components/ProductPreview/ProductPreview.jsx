@@ -19,10 +19,32 @@ function convertProductName(str) {
 }
 
 function ProductPreview({ product, clickBackground }) {
-  const [inputQuantity, setInputQuantity] = useState(1);
   const [colorSelected, setColorSelected] = useState(0);
 
-  const { addItem, removeItem, inCart } = useCart();
+  const { addItem, inCart } = useCart();
+
+  function buySolo() {
+    fetch("http://localhost:5000/payment/solo", {
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+      body: JSON.stringify({
+        id: product.id,
+        quantity: 1,
+        price: product.price,
+        name: product.productName,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        return res.json().then((json) => Promise.reject(json));
+      })
+      .then(({ url }) => {
+        window.location = url;
+      })
+      .catch((error) => {
+        console.log("Error ", error.error);
+      });
+  }
 
   return (
     <>
@@ -73,29 +95,21 @@ function ProductPreview({ product, clickBackground }) {
 
             <hr className="productPreview__line" />
 
-            <p>Quantidade:</p>
-
-            <div className="productPreview__content__body__quantity">
-              <i
-                className="fa-solid fa-minus"
-                onClick={() =>
-                  inputQuantity !== 1 && setInputQuantity(inputQuantity - 1)
-                }
-              ></i>
-              <h2>{inputQuantity}</h2>
-              <i
-                className="fa-solid fa-plus"
-                onClick={() => setInputQuantity(inputQuantity + 1)}
-              ></i>
-            </div>
-
             <div className="productPreview__content__body__buttons">
-              <button className="productPreview__content__body__buttons__buy">
+              <button
+                className="productPreview__content__body__buttons__buy"
+                onClick={() => buySolo()}
+              >
                 COMPRAR
               </button>
               <button
                 className="productPreview__content__body__buttons__addCart"
-                onClick={() => !inCart(product.id) && addItem(product)}
+                onClick={() => {
+                  if (!inCart(product.id)) {
+                    addItem(product);
+                    clickBackground();
+                  }
+                }}
               >
                 ADICIONAR NO CARRINHO
               </button>

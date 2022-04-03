@@ -79,8 +79,6 @@ function Navbar() {
       });
   }
 
-  console.log(items);
-
   return (
     <>
       <header className="navbar5">
@@ -206,75 +204,6 @@ function Navbar() {
           >
             <i className={`fas fa-${openNav ? "times" : "bars"}`}></i>
           </div>
-
-          {/* SHOW PRODUCTS IN CART
-          {!isEmpty && clickCart && (
-            <div className="navbar5__content__cart">
-              {items.map((item, index) => (
-                <div
-                  className="navbar5__content__mobileMenu__items"
-                  key={index}
-                >
-
-                  <img
-                    className="navbar5__content__mobileMenu__items__img"
-                    src={item.productImageLink}
-                    alt={convertProductName(item.productName)}
-                  />
-
-      
-                  <div className="navbar5__content__mobileMenu__items__texts">
-                    <h4 className="navbar5__content__mobileMenu__items__texts__name">
-                      {convertProductName(item.productName)}
-                    </h4>
-                    <p className="navbar5__content__mobileMenu__items__texts__price">
-                      R$ {covertProductPrice(item.price)}
-                    </p>
-                  </div>
-
-     
-                  <div className="navbar5__content__cart__inputs">
-                    <button
-                      className="navbar5__content__cart__inputs__btn"
-                      onClick={() =>
-                        updateItemQuantity(item.id, item.quantity - 1)
-                      }
-                    >
-                      -
-                    </button>
-                    <p className="navbar5__content__cart__inputs__quantity">
-                      {item.quantity}
-                    </p>
-                    <button
-                      className="navbar5__content__cart__inputs__btn"
-                      onClick={() =>
-                        updateItemQuantity(item.id, item.quantity + 1)
-                      }
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              ))}
-
-             
-              <div className="navbar5__content__cart__total">
-                <p>Total: </p>
-                <p>R$ {covertProductPrice(cartTotal)}</p>
-              </div>
-
-             
-              <form method="post">
-                <button
-                  className="navbar5__content__cart__inputs__buyBtn"
-                  type="button"
-                  onClick={() => buy()}
-                >
-                  Buy now
-                </button>
-              </form>
-            </div>
-          )} */}
         </nav>
       </header>
     </>

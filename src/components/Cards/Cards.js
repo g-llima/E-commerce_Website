@@ -53,15 +53,14 @@ function covertProductPrice(value) {
 }
 
 function Cards() {
-  const { addItem, removeItem, inCart } = useCart();
+  const { inCart } = useCart();
   const [isOpenPreview, setIsOpenPreview] = useState(-1);
 
   return (
     <div className="cards">
       {products.map((item, key) => (
-        <>
+        <div key={key}>
           <Card
-            key={key}
             productImage={item.productImageLink}
             productName={convertProductName(item.productName)}
             productPrice={covertProductPrice(item.price)}
@@ -70,9 +69,6 @@ function Cards() {
             btnName={inCart(item.id) ? "Remove from Cart" : "Add to Cart"}
             onCart={inCart(item.id)}
             colors={item.colors}
-            // clickBtn={() => {
-            //   inCart(item.id) ? removeItem(item.id) : addItem(item);
-            // }}
             clickBtn={() =>
               isOpenPreview === key
                 ? setIsOpenPreview(-1)
@@ -85,7 +81,7 @@ function Cards() {
               clickBackground={() => setIsOpenPreview(-1)}
             />
           )}
-        </>
+        </div>
       ))}
     </div>
   );

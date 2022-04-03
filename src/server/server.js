@@ -30,7 +30,33 @@ app.post("/payment", async (req, res) => {
     });
     res.json({ url: session.url });
   } catch (e) {
-    res.status(500).json({ eror: e.message });
+    res.status(500).json({ error: e.message });
+  }
+});
+
+app.post("/payment/solo", async (req, res) => {
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      mode: "payment",
+      line_items: [
+        {
+          price_data: {
+            currency: "brl",
+            product_data: {
+              name: req.body.name,
+            },
+            unit_amount: req.body.price,
+          },
+          quantity: req.body.quantity,
+        },
+      ],
+      success_url: `http://localhost:3000/sucess`,
+      cancel_url: `http://localhost:3000`,
+    });
+    res.json({ url: session.url });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
   }
 });
 
