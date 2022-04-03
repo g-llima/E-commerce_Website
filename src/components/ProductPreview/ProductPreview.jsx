@@ -69,6 +69,14 @@ function ProductPreview({ product, clickBackground }) {
 
             <hr className="productPreview__line" />
 
+            <p>Quantidade:</p>
+
+            <div className="productPreview__content__body__quantity">
+              <i className="fa-solid fa-minus"></i>
+              <h2>1</h2>
+              <i className="fa-solid fa-plus"></i>
+            </div>
+
             <div className="productPreview__content__body__buttons">
               <button className="productPreview__content__body__buttons__buy">
                 COMPRAR
