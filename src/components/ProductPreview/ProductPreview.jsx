@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useCart } from "react-use-cart";
 
 import "./ProductPreview.css";
 
@@ -20,6 +21,8 @@ function convertProductName(str) {
 function ProductPreview({ product, clickBackground }) {
   const [inputQuantity, setInputQuantity] = useState(1);
   const [colorSelected, setColorSelected] = useState(0);
+
+  const { addItem, removeItem, inCart } = useCart();
 
   return (
     <>
@@ -90,7 +93,10 @@ function ProductPreview({ product, clickBackground }) {
               <button className="productPreview__content__body__buttons__buy">
                 COMPRAR
               </button>
-              <button className="productPreview__content__body__buttons__addCart">
+              <button
+                className="productPreview__content__body__buttons__addCart"
+                onClick={() => !inCart(product.id) && addItem(product)}
+              >
                 ADICIONAR NO CARRINHO
               </button>
             </div>
