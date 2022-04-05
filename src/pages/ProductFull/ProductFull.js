@@ -1,12 +1,14 @@
 import React from "react";
 
+import "./ProductFull.css";
+
 function ProductFull() {
   return (
     <div className="productFull">
       <div className="productFull__content">
         <div className="productFull__content__img">
           <img
-            src="https://ih1.redbubble.net/image.3100721225.5642/gpt,mens,750x1000,black,small-pad,750x1000,f8f8f8.u1.jpg"
+            src="https://cdn.shopify.com/s/files/1/0526/4123/5093/products/TechTShirt_Azul-01_df68f358-551d-4b89-aad1-c9ddf13a0356_450x.jpg?v=1647210916"
             alt="a"
           />
         </div>
@@ -19,21 +21,25 @@ function ProductFull() {
             R$ 999,00
           </h2>
 
-          <p className="productFull__content__texts__color">
-            Cor: <span>Crimson</span>
-            <span
-              className="productFull__content__texts__color__btn"
-              style={{ backgroundColor: "red" }}
-            ></span>
-            <span
-              className="productFull__content__texts__color__btn"
-              style={{ backgroundColor: "green" }}
-            ></span>
-            <span
-              className="productFull__content__texts__color__btn"
-              style={{ backgroundColor: "blue" }}
-            ></span>
-          </p>
+          <div className="productFull__content__texts__colors">
+            <p className="productFull__content__texts__colors__text">
+              Cor: <span>Crimson</span>
+            </p>
+            <div className="productFull__content__texts__colors__items">
+              <span
+                className="productFull__content__texts__colors__items__btn"
+                style={{ backgroundColor: "red" }}
+              ></span>
+              <span
+                className="productFull__content__texts__colors__items__btn"
+                style={{ backgroundColor: "green" }}
+              ></span>
+              <span
+                className="productFull__content__texts__colors__items__btn"
+                style={{ backgroundColor: "blue" }}
+              ></span>
+            </div>
+          </div>
 
           <div className="productFull__content__texts__buttons">
             <div className="productFull__content__texts__buttons__size">
@@ -51,13 +57,15 @@ function ProductFull() {
             </div>
 
             <button className="productFull__content__texts__buttons__addCartBTN">
-              ADICIONAR NO CARRINHO
+              ADICIONAR AO <i className="fa-solid fa-cart-shopping"></i>
             </button>
           </div>
 
           <div className="productFull__content__texts__description">
-            <h4>DESCRIÇÃO</h4>
-            <p>
+            <h4 className="productFull__content__texts__description__title">
+              DESCRIÇÃO
+            </h4>
+            <p className="productFull__content__texts__description__text">
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -70,10 +78,12 @@ function ProductFull() {
 
           <div className="productFull__content__texts__share">
             <h4>COMPARTILHE</h4>
-            <i className="fa-brands fa-twitter"></i>
-            <i className="fa-brands fa-instagram"></i>
-            <i className="fa-brands fa-whatsapp"></i>
-            <i className="fa-brands fa-pinterest-p"></i>
+            <div className="productFull__content__texts__share__icons">
+              <i className="fa-brands fa-twitter"></i>
+              <i className="fa-brands fa-instagram"></i>
+              <i className="fa-brands fa-whatsapp"></i>
+              <i className="fa-brands fa-pinterest-p"></i>
+            </div>
           </div>
         </div>
       </div>
