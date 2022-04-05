@@ -1,10 +1,10 @@
 import React from "react";
 import "./Card.css";
 
-function Card({ productImage, productName, productPrice, clickBtn }) {
+function Card({ productImage, productName, productPrice, clickBtn, isInCart }) {
   return (
     <div className="card">
-      <div className="card__img__container">
+      <div className={`card__img__container ${isInCart && "card__inCart"}`}>
         <img className="card__img" src={productImage} alt={productName} />
         <button className="card__details__cartBtn" onClick={clickBtn}>
           Quick View

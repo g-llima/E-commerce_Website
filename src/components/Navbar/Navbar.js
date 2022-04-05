@@ -1,4 +1,4 @@
-import React, { useState, Effect } from "react";
+import React, { useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { useCart } from "react-use-cart";
 import Scrollspy from "react-scrollspy";
@@ -121,13 +121,13 @@ function Navbar() {
                   <p>{convertProductName(item.productName)}</p>
                   <div className="navbar5__cart__products__texts__quantityBtns">
                     <i
-                      className="fa-solid fa-angle-up"
+                      className="fa-solid fa-plus"
                       onClick={() =>
                         updateItemQuantity(item.id, item.quantity + 1)
                       }
                     ></i>
                     <i
-                      className="fa-solid fa-angle-down"
+                      className="fa-solid fa-minus"
                       onClick={() =>
                         updateItemQuantity(item.id, item.quantity - 1)
                       }
