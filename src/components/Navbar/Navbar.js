@@ -93,7 +93,7 @@ function Navbar() {
 
   return (
     <>
-      <header className="navbar5">
+      <header className={`navbar5 ${scrolled && "navbar5__scrolled"}`}>
         <div className={`navbar5__cart ${clickCart ? "activeCart" : null}`}>
           <div className="navbar5__cart__header">
             <h3>SEU CARRINHO</h3>
@@ -154,7 +154,7 @@ function Navbar() {
           </div>
         </div>
 
-        <nav className={`navbar5__content ${scrolled && "navbar5__scrolled"}`}>
+        <nav className={`navbar5__content`}>
           {/* NAVBAR LOGO */}
           <Link to="/" onClick={() => setopenNav(false)}>
             <h1 className="navbar5__content__logo">
