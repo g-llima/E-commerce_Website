@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useCart } from "react-use-cart";
+import { HashLink as Link } from "react-router-hash-link";
 
 import "./ProductPreview.css";
 
@@ -16,6 +17,14 @@ function convertProductName(str) {
     return 48 - (str.length - 30) + "px";
   }
   return 48 + "px";
+}
+
+function removeSpecial(str) {
+  str = str.replace("ã", "a");
+  str = str.replace("ç", "c");
+  str = str.replace(/[^a-zA-Z ]/g, "");
+  str = str.replace(/\s/g, "-");
+  return str;
 }
 
 function ProductPreview({ product, clickBackground }) {
@@ -111,6 +120,9 @@ function ProductPreview({ product, clickBackground }) {
               >
                 ADICIONAR NO CARRINHO
               </button>
+              <Link to={`/${removeSpecial(product.productName)}`}>
+                <button>full page</button>
+              </Link>
             </div>
           </div>
         </div>

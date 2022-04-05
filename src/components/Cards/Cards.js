@@ -4,6 +4,7 @@ import "./Cards.css";
 import { useCart } from "react-use-cart";
 import ProductPreview from "../ProductPreview/ProductPreview";
 import { ProductsContext } from "../../ProductsContext";
+
 function convertProductName(str) {
   if (str.length >= 30) {
     return str.substring(0, 30) + "...";
