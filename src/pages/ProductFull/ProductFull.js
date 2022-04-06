@@ -15,6 +15,7 @@ function covertProductPrice(value) {
 
 function ProductFull(product) {
   const [newProduct, setNewProduct] = useState(product);
+  const [colorSelected, setColorSelected] = useState(0);
   const { addItem, removeItem, inCart } = useCart();
 
   return (
@@ -41,16 +42,26 @@ function ProductFull(product) {
           {/*---------------- COLORS ------------------*/}
           <div className="productFull__content__texts__colors">
             <p className="productFull__content__texts__colors__text">
-              Cor: <span>Crimson</span>
+              <span>Cor</span>:{" "}
+              {Object.keys(product.product.colors[colorSelected])}
             </p>
             <div className="productFull__content__texts__colors__items">
-              {product.product.colors.map((item, index) => (
-                <span
-                  key={index}
-                  className="productFull__content__texts__colors__items__btn"
-                  style={{ backgroundColor: `${item}` }}
-                ></span>
-              ))}
+              {product.product.colors.map((item, index) =>
+                Object.values(item).map((color) => (
+                  <span
+                    key={index}
+                    className={
+                      colorSelected === index
+                        ? "productFull__color__selected"
+                        : null
+                    }
+                    style={{ backgroundColor: color }}
+                    onClick={() => setColorSelected(index)}
+                  >
+                    <i className="fa-solid fa-check"></i>
+                  </span>
+                ))
+              )}
             </div>
           </div>
 

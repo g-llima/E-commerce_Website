@@ -102,6 +102,9 @@
     color: white;
     bottom: 0 !important;
 }
+.productPreview__content__body__colors__text span{
+    font-weight: bold;
+}
 .productPreview__content__body__buttons {
     display: flex;
     align-items: center;

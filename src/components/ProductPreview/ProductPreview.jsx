@@ -81,7 +81,9 @@ function ProductPreview({ product, clickBackground }) {
             <hr className="productPreview__line" />
 
             <div className="productPreview__content__body__colors">
-              <p>Cor: {Object.keys(product.colors[colorSelected])}</p>
+              <p className="productPreview__content__body__colors__text">
+                <span>Cor</span>: {Object.keys(product.colors[colorSelected])}
+              </p>
               <div className="productPreview__content__body__colors__items">
                 {product.colors.map((item, index) =>
                   Object.values(item).map((color) => (
