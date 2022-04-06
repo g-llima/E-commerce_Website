@@ -15,7 +15,7 @@ function covertProductPrice(value) {
 
 function ProductFull(product) {
   const [newProduct, setNewProduct] = useState(product);
-  const { addItem, inCart } = useCart();
+  const { addItem, removeItem, inCart } = useCart();
 
   return (
     <div className="productFull">
@@ -105,13 +105,25 @@ function ProductFull(product) {
 
             {/*---------------- ADD TO CART BUTTON ------------------*/}
             <button
-              className="productFull__content__texts__buttons__addCartBTN"
+              className={`productFull__content__texts__buttons__addCartBTN ${
+                inCart(newProduct.product.id) && "ProductFull_Btn_InCart"
+              }`}
               onClick={() =>
-                !inCart(newProduct.product.id) &&
-                addItem(newProduct.product, newProduct.product.quantity)
+                !inCart(newProduct.product.id)
+                  ? addItem(newProduct.product, newProduct.product.quantity)
+                  : removeItem(newProduct.product.id)
               }
             >
-              ADICIONAR NO <i className="fa-solid fa-cart-shopping"></i>
+              <p
+                className={
+                  inCart(newProduct.product.id)
+                    ? "ProductFull_InCart"
+                    : "productFull_NotCart"
+                }
+              >
+                ADICIONAR NO
+              </p>
+              <i className="fa-solid fa-cart-shopping"></i>
             </button>
           </div>
 
