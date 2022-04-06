@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
+import { useCart } from "react-use-cart";
 
 import "./ProductFull.css";
 
@@ -14,6 +15,7 @@ function covertProductPrice(value) {
 
 function ProductFull(product) {
   const [newProduct, setNewProduct] = useState(product);
+  const { addItem, inCart } = useCart();
 
   return (
     <div className="productFull">
@@ -102,7 +104,13 @@ function ProductFull(product) {
             </div>
 
             {/*---------------- ADD TO CART BUTTON ------------------*/}
-            <button className="productFull__content__texts__buttons__addCartBTN">
+            <button
+              className="productFull__content__texts__buttons__addCartBTN"
+              onClick={() =>
+                !inCart(newProduct.product.id) &&
+                addItem(newProduct.product, newProduct.product.quantity)
+              }
+            >
               ADICIONAR NO <i className="fa-solid fa-cart-shopping"></i>
             </button>
           </div>
