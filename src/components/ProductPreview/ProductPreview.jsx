@@ -81,22 +81,24 @@ function ProductPreview({ product, clickBackground }) {
             <hr className="productPreview__line" />
 
             <div className="productPreview__content__body__colors">
-              <p>Cor:</p>
+              <p>Cor: {Object.keys(product.colors[colorSelected])}</p>
               <div className="productPreview__content__body__colors__items">
-                {product.colors.map((item, index) => (
-                  <span
-                    key={index}
-                    className={
-                      colorSelected === index
-                        ? "productPreview__color__selected"
-                        : null
-                    }
-                    style={{ backgroundColor: item }}
-                    onClick={() => setColorSelected(index)}
-                  >
-                    <i className="fa-solid fa-check"></i>
-                  </span>
-                ))}
+                {product.colors.map((item, index) =>
+                  Object.values(item).map((color) => (
+                    <span
+                      key={index}
+                      className={
+                        colorSelected === index
+                          ? "productPreview__color__selected"
+                          : null
+                      }
+                      style={{ backgroundColor: color }}
+                      onClick={() => setColorSelected(index)}
+                    >
+                      <i className="fa-solid fa-check"></i>
+                    </span>
+                  ))
+                )}
               </div>
             </div>
 
