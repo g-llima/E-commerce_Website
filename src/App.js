@@ -16,6 +16,7 @@ const products = [
       "https://ih1.redbubble.net/image.3100721225.5642/gpt,mens,750x1000,black,small-pad,750x1000,f8f8f8.u1.jpg",
     productName: "Ultra Masculinity GigaChad Graphic T-Shirt",
     colors: [{ Preto: "#14140F" }],
+    sizes: ["M", "G", "GG"],
     productDescription:
       "1At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate nonprovident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",
     price: 14738,
@@ -31,6 +32,7 @@ const products = [
       { "Azul Claro": "#0fbaab" },
       { Vermelho: "#ff3636" },
     ],
+    sizes: ["M", "G", "GG", "XG"],
     productDescription:
       "2At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate nonprovident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",
     price: 12900,
@@ -47,6 +49,7 @@ const products = [
       { Laranja: "#F26800" },
       { Vermelho: "#ff3636" },
     ],
+    sizes: ["P", "M"],
     productDescription:
       "3At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate nonprovident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",
     price: 5479,

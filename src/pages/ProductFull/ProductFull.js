@@ -80,9 +80,11 @@ function ProductFull(product) {
                   })
                 }
               >
-                <option value="M">M</option>
-                <option value="G">G</option>
-                <option value="GG">GG</option>
+                {product.product.sizes.map((item, index) => (
+                  <option key={index} value={item}>
+                    {item}
+                  </option>
+                ))}
               </select>
             </div>
 
