@@ -89,8 +89,6 @@ function Navbar() {
       });
   }
 
-  console.log(items);
-
   return (
     <>
       <header className={`navbar5 ${scrolled && "navbar5__scrolled"}`}>

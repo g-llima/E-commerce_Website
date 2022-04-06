@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { CartProvider } from "react-use-cart";
 import { ProductsContext } from "./ProductsContext.js";
@@ -19,6 +19,7 @@ const products = [
     productDescription:
       "1At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate nonprovident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",
     price: 14738,
+    quantity: 1,
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ const products = [
     productDescription:
       "2At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate nonprovident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",
     price: 12900,
+    quantity: 1,
   },
   {
     id: 3,
@@ -39,6 +41,7 @@ const products = [
     productDescription:
       "3At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate nonprovident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",
     price: 5479,
+    quantity: 1,
   },
 ];
 
@@ -67,7 +70,7 @@ function App() {
               <Route
                 key={index}
                 path={`/${removeSpecial(item.productName)}`}
-                element={<ProductFull />}
+                element={<ProductFull product={item} />}
               />
             ))}
           </Routes>

@@ -1,88 +1,138 @@
-import React from "react";
+import React, { useState } from "react";
+import { HashLink as Link } from "react-router-hash-link";
 
 import "./ProductFull.css";
 
-function ProductFull() {
+function covertProductPrice(value) {
+  value = value.toString();
+  return (
+    value.substring(0, value.length - 2) +
+    "," +
+    value.substring(value.length - 2)
+  );
+}
+
+function ProductFull(product) {
+  const [newProduct, setNewProduct] = useState(product);
+
   return (
     <div className="productFull">
       <div className="productFull__content">
+        {/*---------------- PRODUCT IMAGE ------------------*/}
         <div className="productFull__content__img">
           <img
-            src="https://cdn.shopify.com/s/files/1/0526/4123/5093/products/TechTShirt_Azul-01_df68f358-551d-4b89-aad1-c9ddf13a0356_450x.jpg?v=1647210916"
-            alt="a"
+            src={product.product.productImageLink}
+            alt={product.productName}
           />
         </div>
         <div className="productFull__content__texts">
+          {/*---------------- TITLE ------------------*/}
           <h1 className="productFull__content__texts__title">
-            Ultra-Masculinity-GigaChad-Graphic-TShirt
+            {product.product.productName}
           </h1>
 
+          {/*---------------- PRICE ------------------*/}
           <h2 className="productFull__content__texts__title__price">
-            R$ 999,00
+            R$ {covertProductPrice(product.product.price)}
           </h2>
 
+          {/*---------------- COLORS ------------------*/}
           <div className="productFull__content__texts__colors">
             <p className="productFull__content__texts__colors__text">
               Cor: <span>Crimson</span>
             </p>
             <div className="productFull__content__texts__colors__items">
-              <span
-                className="productFull__content__texts__colors__items__btn"
-                style={{ backgroundColor: "red" }}
-              ></span>
-              <span
-                className="productFull__content__texts__colors__items__btn"
-                style={{ backgroundColor: "green" }}
-              ></span>
-              <span
-                className="productFull__content__texts__colors__items__btn"
-                style={{ backgroundColor: "blue" }}
-              ></span>
+              {product.product.colors.map((item, index) => (
+                <span
+                  key={index}
+                  className="productFull__content__texts__colors__items__btn"
+                  style={{ backgroundColor: `${item}` }}
+                ></span>
+              ))}
             </div>
           </div>
 
+          {/*---------------- MIDDLE BUTTONS ------------------*/}
           <div className="productFull__content__texts__buttons">
             <div className="productFull__content__texts__buttons__size">
               <p>Tamanho: </p>
-              <select>
+              <select
+                onChange={(e) =>
+                  setNewProduct({
+                    product: {
+                      ...newProduct.product,
+                      productName:
+                        product.product.productName + " - " + e.target.value,
+                    },
+                  })
+                }
+              >
                 <option value="M">M</option>
                 <option value="G">G</option>
                 <option value="GG">GG</option>
               </select>
             </div>
 
+            {/*---------------- QUANTITY BUTTON ------------------*/}
             <div className="productFull__content__texts__buttons__qnt">
-              <i className="fa-solid fa-minus"></i>1
-              <i className="fa-solid fa-plus"></i>
+              <i
+                className="fa-solid fa-minus"
+                onClick={() =>
+                  newProduct.product.quantity > 1 &&
+                  setNewProduct({
+                    product: {
+                      ...newProduct.product,
+                      quantity: newProduct.product.quantity - 1,
+                    },
+                  })
+                }
+              ></i>
+              {newProduct.product.quantity}
+              <i
+                className="fa-solid fa-plus"
+                onClick={() =>
+                  setNewProduct({
+                    product: {
+                      ...newProduct.product,
+                      quantity: newProduct.product.quantity + 1,
+                    },
+                  })
+                }
+              ></i>
             </div>
 
+            {/*---------------- ADD TO CART BUTTON ------------------*/}
             <button className="productFull__content__texts__buttons__addCartBTN">
-              ADICIONAR AO <i className="fa-solid fa-cart-shopping"></i>
+              ADICIONAR NO <i className="fa-solid fa-cart-shopping"></i>
             </button>
           </div>
 
+          {/*---------------- PRODUCT DESCRIPTION ------------------*/}
           <div className="productFull__content__texts__description">
             <h4 className="productFull__content__texts__description__title">
               DESCRIÇÃO
             </h4>
             <p className="productFull__content__texts__description__text">
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              {product.product.productDescription}
             </p>
           </div>
 
+          {/*---------------- SHARE PRODUCT ------------------*/}
           <div className="productFull__content__texts__share">
             <h4>COMPARTILHE</h4>
             <div className="productFull__content__texts__share__icons">
-              <i className="fa-brands fa-twitter"></i>
-              <i className="fa-brands fa-instagram"></i>
-              <i className="fa-brands fa-whatsapp"></i>
-              <i className="fa-brands fa-pinterest-p"></i>
+              <Link to="/">
+                <i className="fa-brands fa-twitter"></i>
+              </Link>
+              <Link to="/">
+                <i className="fa-brands fa-instagram"></i>
+              </Link>
+              <Link to="/">
+                <i className="fa-brands fa-whatsapp"></i>
+              </Link>
+              <Link to="/">
+                <i className="fa-brands fa-pinterest-p"></i>
+              </Link>
             </div>
           </div>
         </div>
