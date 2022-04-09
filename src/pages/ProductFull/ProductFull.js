@@ -13,7 +13,7 @@ function covertProductPrice(value) {
   );
 }
 
-function ProductFull(product) {
+function ProductFull({ product }) {
   const [newProduct, setNewProduct] = useState(product);
   const [colorSelected, setColorSelected] = useState(0);
   const { addItem, removeItem, inCart } = useCart();
@@ -23,30 +23,26 @@ function ProductFull(product) {
       <div className="productFull__content">
         {/*---------------- PRODUCT IMAGE ------------------*/}
         <div className="productFull__content__img">
-          <img
-            src={product.product.productImageLink}
-            alt={product.productName}
-          />
+          <img src={product.productImageLink} alt={product.productName} />
         </div>
         <div className="productFull__content__texts">
           {/*---------------- TITLE ------------------*/}
           <h1 className="productFull__content__texts__title">
-            {product.product.productName}
+            {product.productName}
           </h1>
 
           {/*---------------- PRICE ------------------*/}
           <h2 className="productFull__content__texts__title__price">
-            R$ {covertProductPrice(product.product.price)}
+            R$ {covertProductPrice(product.price)}
           </h2>
 
           {/*---------------- COLORS ------------------*/}
           <div className="productFull__content__texts__colors">
             <p className="productFull__content__texts__colors__text">
-              <span>Cor</span>:{" "}
-              {Object.keys(product.product.colors[colorSelected])}
+              <span>Cor</span>: {Object.keys(product.colors[colorSelected])}
             </p>
             <div className="productFull__content__texts__colors__items">
-              {product.product.colors.map((item, index) =>
+              {product.colors.map((item, index) =>
                 Object.values(item).map((color) => (
                   <span
                     key={index}
@@ -72,15 +68,12 @@ function ProductFull(product) {
               <select
                 onChange={(e) =>
                   setNewProduct({
-                    product: {
-                      ...newProduct.product,
-                      productName:
-                        product.product.productName + " - " + e.target.value,
-                    },
+                    ...newProduct,
+                    productName: product.productName + " - " + e.target.value,
                   })
                 }
               >
-                {product.product.sizes.map((item, index) => (
+                {product.sizes.map((item, index) => (
                   <option key={index} value={item}>
                     {item}
                   </option>
@@ -93,24 +86,20 @@ function ProductFull(product) {
               <i
                 className="fa-solid fa-minus"
                 onClick={() =>
-                  newProduct.product.quantity > 1 &&
+                  newProduct.quantity > 1 &&
                   setNewProduct({
-                    product: {
-                      ...newProduct.product,
-                      quantity: newProduct.product.quantity - 1,
-                    },
+                    ...newProduct,
+                    quantity: newProduct.quantity - 1,
                   })
                 }
               ></i>
-              {newProduct.product.quantity}
+              {newProduct.quantity}
               <i
                 className="fa-solid fa-plus"
                 onClick={() =>
                   setNewProduct({
-                    product: {
-                      ...newProduct.product,
-                      quantity: newProduct.product.quantity + 1,
-                    },
+                    ...newProduct,
+                    quantity: newProduct.quantity + 1,
                   })
                 }
               ></i>
@@ -119,17 +108,17 @@ function ProductFull(product) {
             {/*---------------- ADD TO CART BUTTON ------------------*/}
             <button
               className={`productFull__content__texts__buttons__addCartBTN ${
-                inCart(newProduct.product.id) && "ProductFull_Btn_InCart"
+                inCart(newProduct.id) && "ProductFull_Btn_InCart"
               }`}
               onClick={() =>
-                !inCart(newProduct.product.id)
-                  ? addItem(newProduct.product, newProduct.product.quantity)
-                  : removeItem(newProduct.product.id)
+                !inCart(newProduct.id)
+                  ? addItem(newProduct, newProduct.quantity)
+                  : removeItem(newProduct.id)
               }
             >
               <p
                 className={
-                  inCart(newProduct.product.id)
+                  inCart(newProduct.id)
                     ? "ProductFull_InCart"
                     : "productFull_NotCart"
                 }
@@ -146,7 +135,7 @@ function ProductFull(product) {
               DESCRIÇÃO
             </h4>
             <p className="productFull__content__texts__description__text">
-              {product.product.productDescription}
+              {product.productDescription}
             </p>
           </div>
 

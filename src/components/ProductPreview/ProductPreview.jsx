@@ -162,7 +162,7 @@ function ProductPreview({ product, clickBackground }) {
                 className="productPreview__content__body__buttons__addCart"
                 onClick={() => {
                   if (!inCart(newProduct.id)) {
-                    addItem(newProduct);
+                    addItem(newProduct, newProduct.quantity);
                     clickBackground();
                   }
                 }}
