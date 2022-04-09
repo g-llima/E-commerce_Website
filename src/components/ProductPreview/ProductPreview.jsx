@@ -56,23 +56,18 @@ function ProductPreview({ product, clickBackground }) {
       });
   }
 
-  console.log(newProduct);
-
   return (
     <>
       <div className="productPreviewBackground" onClick={clickBackground}></div>
       <div className="productPreview">
         <div className="productPreview__content">
           <div className="productPreview__content__imgs__container">
-            <img
-              src={newProduct.productImageLink}
-              alt={newProduct.productName}
-            />
+            <img src={product.productImageLink} alt={product.productName} />
           </div>
 
           <div className="productPreview__content__body">
             <h1 className="productPreview__content__body__title">
-              {newProduct.productName}
+              {product.productName}
             </h1>
 
             <p className="productPreview__content__body__price">

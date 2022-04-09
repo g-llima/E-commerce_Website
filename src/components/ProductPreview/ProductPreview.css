@@ -114,6 +114,10 @@
 /* -------------- INPUT BUTTONS ----------------- */
 .productPreview__content__body__input__btns {
     margin: 2rem 0;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .productPreview__content__body__input__btns__sizes {
     display: flex;
@@ -134,6 +138,26 @@
 }
 .productPreview__content__body__input__btns__sizes span{
     font-weight: bold;
+}
+.productPreview__content__body__input__btns__qnt {
+    display: flex;
+    width: 100px;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    border: 1px solid #dbdbdb;
+    padding: 0 5px;
+}
+.productPreview__content__body__input__btns__qnt i {
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -webkit-transition: all .1s ease-in-out;
+}
+.productPreview__content__body__input__btns__qnt i:hover {
+    color: var(--color-light-blue);
 }
 
 /* -------------- BUY & ADD TO CART BUTTONS ----------------- */
