@@ -29,7 +29,7 @@ function removeSpecial(str) {
 
 function ProductPreview({ product, clickBackground }) {
   const [colorSelected, setColorSelected] = useState(0);
-  const [newProduct, setNewProduct] = useState([]);
+  const [newProduct, setNewProduct] = useState(product);
   const { addItem, inCart } = useCart();
 
   function buySolo() {
@@ -56,33 +56,39 @@ function ProductPreview({ product, clickBackground }) {
       });
   }
 
+  console.log(newProduct);
+
   return (
     <>
       <div className="productPreviewBackground" onClick={clickBackground}></div>
       <div className="productPreview">
         <div className="productPreview__content">
           <div className="productPreview__content__imgs__container">
-            <img src={product.productImageLink} alt={product.productName} />
+            <img
+              src={newProduct.productImageLink}
+              alt={newProduct.productName}
+            />
           </div>
 
           <div className="productPreview__content__body">
             <h1 className="productPreview__content__body__title">
-              {product.productName}
+              {newProduct.productName}
             </h1>
 
             <p className="productPreview__content__body__price">
-              R$ {covertProductPrice(product.price)}
+              R$ {covertProductPrice(newProduct.price)}
             </p>
 
             <p className="productPreview__content__body__description">
-              {product.productDescription}
+              {newProduct.productDescription}
             </p>
 
             <hr className="productPreview__line" />
 
             <div className="productPreview__content__body__colors">
               <p className="productPreview__content__body__colors__text">
-                <span>Cor</span>: {Object.keys(product.colors[colorSelected])}
+                <span>Cor</span>:{" "}
+                {Object.keys(newProduct.colors[colorSelected])}
               </p>
               <div className="productPreview__content__body__colors__items">
                 {product.colors.map((item, index) =>
@@ -110,20 +116,42 @@ function ProductPreview({ product, clickBackground }) {
                 <select
                   onChange={(e) =>
                     setNewProduct({
-                      product: {
-                        ...product,
-                        productName:
-                          product.productName + " - " + e.target.value,
-                      },
+                      ...newProduct,
+                      productName:
+                        newProduct.productName + " - " + e.target.value,
                     })
                   }
                 >
-                  {product.sizes.map((item, index) => (
+                  {newProduct.sizes.map((item, index) => (
                     <option key={index} value={item}>
                       {item}
                     </option>
                   ))}
                 </select>
+              </div>
+
+              {/*---------------- QUANTITY BUTTON ------------------*/}
+              <div className="productPreview__content__body__input__btns__qnt">
+                <i
+                  className="fa-solid fa-minus"
+                  onClick={() =>
+                    newProduct.quantity > 1 &&
+                    setNewProduct({
+                      ...newProduct,
+                      quantity: newProduct.quantity - 1,
+                    })
+                  }
+                ></i>
+                {newProduct.quantity}
+                <i
+                  className="fa-solid fa-plus"
+                  onClick={() =>
+                    setNewProduct({
+                      ...newProduct,
+                      quantity: newProduct.quantity + 1,
+                    })
+                  }
+                ></i>
               </div>
             </div>
 
@@ -139,15 +167,15 @@ function ProductPreview({ product, clickBackground }) {
               <button
                 className="productPreview__content__body__buttons__addCart"
                 onClick={() => {
-                  if (!inCart(product.id)) {
-                    addItem(product);
+                  if (!inCart(newProduct.id)) {
+                    addItem(newProduct);
                     clickBackground();
                   }
                 }}
               >
                 ADICIONAR NO CARRINHO
               </button>
-              <Link to={`/${removeSpecial(product.productName)}`}>
+              <Link to={`/${removeSpecial(newProduct.productName)}`}>
                 <button>full page</button>
               </Link>
             </div>
