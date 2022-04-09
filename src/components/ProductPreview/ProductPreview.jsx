@@ -112,8 +112,7 @@ function ProductPreview({ product, clickBackground }) {
                   onChange={(e) =>
                     setNewProduct({
                       ...newProduct,
-                      productName:
-                        newProduct.productName + " - " + e.target.value,
+                      productName: product.productName + " - " + e.target.value,
                     })
                   }
                 >
@@ -170,7 +169,7 @@ function ProductPreview({ product, clickBackground }) {
               >
                 ADICIONAR NO CARRINHO
               </button>
-              <Link to={`/${removeSpecial(newProduct.productName)}`}>
+              <Link to={`/${removeSpecial(product.productName)}`}>
                 <button>full page</button>
               </Link>
             </div>
