@@ -104,24 +104,27 @@ function ProductPreview({ product, clickBackground }) {
               </div>
             </div>
 
-            <div className="productPreview__content_body__size_qnt">
-              <p>Tamanho: </p>
-              <select
-                onChange={(e) =>
-                  setNewProduct({
-                    product: {
-                      ...product,
-                      productName: product.productName + " - " + e.target.value,
-                    },
-                  })
-                }
-              >
-                {product.sizes.map((item, index) => (
-                  <option key={index} value={item}>
-                    {item}
-                  </option>
-                ))}
-              </select>
+            <div className="productPreview__content__body__input__btns">
+              <div className="productPreview__content__body__input__btns__sizes">
+                <p>Tamanho: </p>
+                <select
+                  onChange={(e) =>
+                    setNewProduct({
+                      product: {
+                        ...product,
+                        productName:
+                          product.productName + " - " + e.target.value,
+                      },
+                    })
+                  }
+                >
+                  {product.sizes.map((item, index) => (
+                    <option key={index} value={item}>
+                      {item}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
 
             <hr className="productPreview__line" />

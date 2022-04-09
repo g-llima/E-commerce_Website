@@ -29,6 +29,7 @@
     align-items: center;
     justify-content: center;
 }
+/* -------------- PRODUCT IMAGE ----------------- */
 .productPreview__content__imgs__container {
     max-width: 500px;
     height: 100%;
@@ -43,6 +44,8 @@
     height: 80%;
     object-fit: cover;
 }
+
+/* -------------- PRODUCT CONTENT ----------------- */
 .productPreview__content__body {
     height: 100%;
     min-width: 300px;
@@ -66,6 +69,9 @@
 .productPreview__line {
     margin: 1rem 0;
 }
+
+
+/* -------------- PRODUCT COLORS ----------------- */
 .productPreview__content__body__colors {
     display: flex;
     flex-direction: column;
@@ -102,9 +108,35 @@
     color: white;
     bottom: 0 !important;
 }
-.productPreview__content__body__colors__text span{
+
+
+
+/* -------------- INPUT BUTTONS ----------------- */
+.productPreview__content__body__input__btns {
+    margin: 2rem 0;
+}
+.productPreview__content__body__input__btns__sizes {
+    display: flex;
+    border: 1px solid #dbdbdb;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    width: 150px;
+    height: 50px;
+    border-radius: 2px;
+}
+.productPreview__content__body__input__btns__sizes p {
     font-weight: bold;
 }
+.productPreview__content__body__input__btns__sizes select {
+    border: 1px solid white;
+    outline: none;
+}
+.productPreview__content__body__input__btns__sizes span{
+    font-weight: bold;
+}
+
+/* -------------- BUY & ADD TO CART BUTTONS ----------------- */
 .productPreview__content__body__buttons {
     display: flex;
     align-items: center;
@@ -141,6 +173,8 @@
 .productPreview__content__body__buttons button:hover {
     bottom: 3px;
 }
+
+
 @media only screen and (max-width: 768px) {
     .productPreview__content {
         flex-direction: column;
