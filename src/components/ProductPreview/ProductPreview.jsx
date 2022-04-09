@@ -29,7 +29,7 @@ function removeSpecial(str) {
 
 function ProductPreview({ product, clickBackground }) {
   const [colorSelected, setColorSelected] = useState(0);
-
+  const [newProduct, setNewProduct] = useState([]);
   const { addItem, inCart } = useCart();
 
   function buySolo() {
@@ -37,11 +37,11 @@ function ProductPreview({ product, clickBackground }) {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify({
-        id: product.id,
+        id: newProduct.product.id,
         quantity: 1,
-        price: product.price,
-        name: product.productName,
-        imgUrl: product.productImageLink,
+        price: newProduct.product.price,
+        name: newProduct.product.productName,
+        imgUrl: newProduct.product.productImageLink,
       }),
     })
       .then((res) => {
@@ -102,6 +102,26 @@ function ProductPreview({ product, clickBackground }) {
                   ))
                 )}
               </div>
+            </div>
+
+            <div className="productPreview__content_body__size_qnt">
+              <p>Tamanho: </p>
+              <select
+                onChange={(e) =>
+                  setNewProduct({
+                    product: {
+                      ...product,
+                      productName: product.productName + " - " + e.target.value,
+                    },
+                  })
+                }
+              >
+                {product.sizes.map((item, index) => (
+                  <option key={index} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <hr className="productPreview__line" />
