@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { useCart } from "react-use-cart";
 
@@ -17,6 +17,13 @@ function ProductFull({ product }) {
   const [newProduct, setNewProduct] = useState(product);
   const [colorSelected, setColorSelected] = useState(0);
   const { addItem, removeItem, inCart } = useCart();
+
+  useEffect(() => {
+    setNewProduct({
+      ...newProduct,
+      productName: product.productName + " - " + product.sizes[0],
+    });
+  }, [product]);
 
   return (
     <div className="productFull">

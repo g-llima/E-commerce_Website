@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useCart } from "react-use-cart";
 import { HashLink as Link } from "react-router-hash-link";
 
@@ -11,12 +11,6 @@ function covertProductPrice(value) {
     "," +
     value.substring(value.length - 2)
   );
-}
-function convertProductName(str) {
-  if (str.length >= 30) {
-    return 48 - (str.length - 30) + "px";
-  }
-  return 48 + "px";
 }
 
 function removeSpecial(str) {
@@ -56,30 +50,42 @@ function ProductPreview({ product, clickBackground }) {
       });
   }
 
+  useEffect(() => {
+    setNewProduct({
+      ...newProduct,
+      productName: product.productName + " - " + product.sizes[0],
+    });
+  }, [product]);
+
   return (
     <>
       <div className="productPreviewBackground" onClick={clickBackground}></div>
       <div className="productPreview">
         <div className="productPreview__content">
+          {/*---------------- PRODUCT IMAGE ------------------*/}
           <div className="productPreview__content__imgs__container">
             <img src={product.productImageLink} alt={product.productName} />
           </div>
 
           <div className="productPreview__content__body">
+            {/*---------------- PRODUCT TITLE ------------------*/}
             <h1 className="productPreview__content__body__title">
               {product.productName}
             </h1>
 
+            {/*---------------- PRODUCT PRICE ------------------*/}
             <p className="productPreview__content__body__price">
               R$ {covertProductPrice(newProduct.price)}
             </p>
 
+            {/*---------------- PRODUCT DESCRIPTION ------------------*/}
             <p className="productPreview__content__body__description">
               {newProduct.productDescription}
             </p>
 
             <hr className="productPreview__line" />
 
+            {/*---------------- COLORS ------------------*/}
             <div className="productPreview__content__body__colors">
               <p className="productPreview__content__body__colors__text">
                 <span>Cor</span>:{" "}
@@ -105,7 +111,9 @@ function ProductPreview({ product, clickBackground }) {
               </div>
             </div>
 
+            {/*---------------- SIZE & QUANTITY BUTTONS ------------------*/}
             <div className="productPreview__content__body__input__btns">
+              {/*---------------- SIZES BUTTON ------------------*/}
               <div className="productPreview__content__body__input__btns__sizes">
                 <p>Tamanho: </p>
                 <select
@@ -151,6 +159,7 @@ function ProductPreview({ product, clickBackground }) {
 
             <hr className="productPreview__line" />
 
+            {/*---------------- PRODUCT BUY & ADD TO CART BUTTONS ------------------*/}
             <div className="productPreview__content__body__buttons">
               <button
                 className="productPreview__content__body__buttons__buy"
