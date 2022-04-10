@@ -89,6 +89,8 @@ function Navbar() {
       });
   }
 
+  console.log(items);
+
   return (
     <>
       <header className={`navbar5 ${scrolled && "navbar5__scrolled"}`}>
@@ -115,8 +117,20 @@ function Navbar() {
                   ></i>
                 </div>
 
+                {/*---------------- PRODUCT ------------------*/}
                 <div className="navbar5__cart__products__texts">
-                  <p>{convertProductName(item.productName)}</p>
+                  {/*---------------- PRODUCT INFO ------------------*/}
+                  <div className="navbar5__cart__products__texts__info">
+                    <p>{convertProductName(item.productName)}</p>
+                    <p className="navbar5__cart__products__texts__info__subinfo">
+                      Cor: <span>Vermelho</span>
+                    </p>
+                    <p className="navbar5__cart__products__texts__info__subinfo">
+                      Tamanho: <span>P</span>
+                    </p>
+                  </div>
+
+                  {/*---------------- PRODUCT QUANTITY ------------------*/}
                   <div className="navbar5__cart__products__texts__quantityBtns">
                     <i
                       className="fa-solid fa-plus"
@@ -132,6 +146,7 @@ function Navbar() {
                     ></i>
                   </div>
 
+                  {/*---------------- PRODUCT BOTTOM LINE ------------------*/}
                   <div className="navbar5__cart__products__texts__bottom">
                     <p>Qnt: {item.quantity}</p>
                     <p className="navbar5__cart__products__texts__bottom__price">

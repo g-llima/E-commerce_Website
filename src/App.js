@@ -69,6 +69,13 @@ function removeSpecial(str) {
 function App() {
   const [contextValue, setContextValue] = useState(products);
 
+  // const test = "Nome do produto ---P-Azul Claro";
+  // const testInput = test.substring(test.indexOf("---") + 3);
+  // const testSize = testInput.substring(0, testInput.indexOf("-"));
+  // const testColor = testInput.substring(testInput.indexOf("-") + 1);
+  // console.log(testSize);
+  // console.log(testColor);
+
   return (
     <>
       <ProductsContext.Provider value={{ contextValue, setContextValue }}>

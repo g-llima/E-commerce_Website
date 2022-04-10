@@ -113,6 +113,10 @@
   width: 100%;
   flex-direction: column;
 }
+.navbar5__cart__products__texts__info__subinfo {
+  font-weight: bold;
+  font-size: 12px;
+}
 .navbar5__cart__products__texts__quantityBtns {
   display: flex;
   align-items: center;

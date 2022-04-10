@@ -23,6 +23,7 @@ function removeSpecial(str) {
 
 function ProductPreview({ product, clickBackground }) {
   const [colorSelected, setColorSelected] = useState(0);
+  const [productInput, setProductInput] = useState({ size: "X", color: "X" });
   const [newProduct, setNewProduct] = useState(product);
   const { addItem, inCart } = useCart();
 
@@ -53,9 +54,21 @@ function ProductPreview({ product, clickBackground }) {
   useEffect(() => {
     setNewProduct({
       ...newProduct,
-      productName: product.productName + " - " + product.sizes[0],
+      productName:
+        product.productName +
+        " ---" +
+        Object.values(productInput.size) +
+        "-" +
+        Object.values(productInput.color),
     });
-  }, [product]);
+  }, [productInput, product]);
+
+  useEffect(() => {
+    setProductInput({
+      ...productInput,
+      ["color"]: Object.keys(newProduct.colors[colorSelected]),
+    });
+  }, [colorSelected]);
 
   return (
     <>
@@ -118,9 +131,9 @@ function ProductPreview({ product, clickBackground }) {
                 <p>Tamanho: </p>
                 <select
                   onChange={(e) =>
-                    setNewProduct({
-                      ...newProduct,
-                      productName: product.productName + " - " + e.target.value,
+                    setProductInput({
+                      ...productInput,
+                      ["size"]: e.target.value,
                     })
                   }
                 >
