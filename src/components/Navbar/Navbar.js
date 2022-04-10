@@ -13,10 +13,12 @@ function covertProductPrice(value) {
   );
 }
 function convertProductName(str) {
-  if (str.length >= 38) {
-    return str.substring(0, 38) + "...";
+  let productName = str.substring(0, str.indexOf("---"));
+
+  if (productName.length >= 38) {
+    return productName.substring(0, 38) + "...";
   }
-  return str;
+  return productName;
 }
 
 const navbarItems = [
