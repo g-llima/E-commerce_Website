@@ -89,7 +89,19 @@ function Navbar() {
       });
   }
 
-  console.log(items);
+  function getSize(item) {
+    const productInput = item.productName.substring(
+      item.productName.indexOf("---") + 3
+    );
+    return productInput.substring(0, productInput.indexOf("-"));
+  }
+
+  function getColor(item) {
+    const productInput = item.productName.substring(
+      item.productName.indexOf("---") + 3
+    );
+    return productInput.substring(productInput.indexOf("-") + 1);
+  }
 
   return (
     <>
@@ -123,10 +135,10 @@ function Navbar() {
                   <div className="navbar5__cart__products__texts__info">
                     <p>{convertProductName(item.productName)}</p>
                     <p className="navbar5__cart__products__texts__info__subinfo">
-                      Cor: <span>Vermelho</span>
+                      Cor: <span>{getColor(item)}</span>
                     </p>
                     <p className="navbar5__cart__products__texts__info__subinfo">
-                      Tamanho: <span>P</span>
+                      Tamanho: <span>{getSize(item)}</span>
                     </p>
                   </div>
 
