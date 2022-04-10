@@ -23,8 +23,11 @@ function removeSpecial(str) {
 
 function ProductPreview({ product, clickBackground }) {
   const [colorSelected, setColorSelected] = useState(0);
-  const [productInput, setProductInput] = useState({ size: "X", color: "X" });
   const [newProduct, setNewProduct] = useState(product);
+  const [productInput, setProductInput] = useState({
+    size: Object.values(newProduct.sizes[0]),
+    color: Object.keys(newProduct.colors[colorSelected]),
+  });
   const { addItem, inCart } = useCart();
 
   function buySolo() {
