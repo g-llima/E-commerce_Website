@@ -73,7 +73,7 @@ function Navbar() {
             id: item.id,
             quantity: item.quantity,
             price: item.price,
-            name: item.productName,
+            name: item.productName.replace("---", ""),
             imgUrl: item.productImageLink,
           };
         }),
