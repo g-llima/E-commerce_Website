@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { useCart } from "react-use-cart";
 import Scrollspy from "react-scrollspy";
