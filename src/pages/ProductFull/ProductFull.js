@@ -16,14 +16,30 @@ function covertProductPrice(value) {
 function ProductFull({ product }) {
   const [newProduct, setNewProduct] = useState(product);
   const [colorSelected, setColorSelected] = useState(0);
+  const [productInput, setProductInput] = useState({
+    size: Object.values(newProduct.sizes[0]),
+    color: Object.keys(newProduct.colors[colorSelected]),
+  });
   const { addItem, removeItem, inCart } = useCart();
 
   useEffect(() => {
     setNewProduct({
       ...newProduct,
-      productName: product.productName + " - " + product.sizes[0],
+      productName:
+        product.productName +
+        " ---" +
+        Object.values(productInput.size) +
+        "-" +
+        Object.values(productInput.color),
     });
-  }, [product]);
+  }, [productInput, product]);
+
+  useEffect(() => {
+    setProductInput({
+      ...productInput,
+      ["color"]: Object.keys(newProduct.colors[colorSelected]),
+    });
+  }, [colorSelected]);
 
   return (
     <div className="productFull">
@@ -74,9 +90,9 @@ function ProductFull({ product }) {
               <p>Tamanho: </p>
               <select
                 onChange={(e) =>
-                  setNewProduct({
-                    ...newProduct,
-                    productName: product.productName + " - " + e.target.value,
+                  setProductInput({
+                    ...productInput,
+                    ["size"]: e.target.value,
                   })
                 }
               >
