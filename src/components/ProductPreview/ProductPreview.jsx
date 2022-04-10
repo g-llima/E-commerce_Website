@@ -35,11 +35,11 @@ function ProductPreview({ product, clickBackground }) {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify({
-        id: newProduct.product.id,
+        id: newProduct.id,
         quantity: 1,
-        price: newProduct.product.price,
-        name: newProduct.product.productName,
-        imgUrl: newProduct.product.productImageLink,
+        price: newProduct.price,
+        name: newProduct.productName.replace("---", ""),
+        imgUrl: newProduct.productImageLink,
       }),
     })
       .then((res) => {
