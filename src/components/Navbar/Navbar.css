@@ -22,6 +22,8 @@
   background: #fff;
   box-shadow: 0 1px 3px #dbdbdb;
 }
+
+/* -------------------- CART --------------------*/
 .navbar5__cart {
   position: fixed;
   top: 0;
@@ -174,7 +176,7 @@
   color: var(--color-dark);
 }
 
-/* LOGO */
+/* -------------------- LOGO --------------------*/
 .navbar5__content__logo {
   color: var(--color-dark);
   letter-spacing: 2px;
@@ -208,16 +210,14 @@
   font-size: 2rem;
   color: var(--color-light-blue);
 }
+
+/* -------------------- CART ICON --------------------*/
 .navbar5__content__items__cartBtn {
   background: none;
   position: relative;
   border: none;
   cursor: pointer;
   margin-left: 10px;
-}
-.navCartIcon {
-  font-size: 1.2rem;
-  color: var(--color-dark);
 }
 .navbar5__content__items__cartBtn__quantity {
   position: absolute;
@@ -230,24 +230,53 @@
   bottom: 18px;
   left: 18px;
 }
-.navbar5__content__cart {
-  position: absolute;
+.navCartIcon {
+  font-size: 1.2rem;
+  color: var(--color-dark);
+}
+
+/* -------------------- CART EMPY --------------------*/
+.navbar5__cart__empty {
+  color: var(--color-dark);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 3px #dbdbdb;
-  border-radius: 5px;
-  background: white;
-  top: 90%;
-  right: 11%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rem;
+  height: 180px;
 }
+.navbar5__cart__empty i {
+  font-size: 3rem;
+  transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.navbar5__cart__empty i:hover {
+  color: var(--color-light-blue);
+}
+.navbar5__cart__empty p {
+  font-size: 2rem;
+  transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+.navbar5__cart__empty p:hover {
+  transform: rotate(180deg);
+}
+.navbar5__cart__empty h2 {
+  margin-top: 1rem;
+}
+
+
+/* -------------------- MOBILE MENU --------------------*/
 .navbar5__content__mobileMenu__items {
   padding: 10px;
   margin: 10px 0;
   border-bottom: 1px solid #dbdbdb;
   background-color: white;
-}
-.navbar5__content__mobileMenu__items__img {
-  max-width: 200px;
 }
 .navbar5__content__mobileMenu__items__texts {
   display: flex;
@@ -264,43 +293,9 @@
   margin: 10px;
   justify-content: space-between;
 }
-.navbar5__content__cart__inputs {
-  display: flex;
-  align-items: center;
-  margin: 10px;
-}
-.navbar5__content__cart__inputs__quantity {
-  width: 50px;
-  text-align: center;
-  color: var(--color-blue);
-}
-.navbar5__content__cart__inputs__btn {
-  padding: 2px 5px;
-  border: 1px solid #222;
-  background: none;
-  border-radius: 3px;
-  font-size: 16px;
-  color: #222;
-  cursor: pointer;
-}
-.navbar5__content__cart__inputs__buyBtn {
-  padding: 6px;
-  margin: 10px;
-  position: relative;
-  bottom: 0;
-  border: none;
-  background-color: var(--color-blue);
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.1s ease-out;
-  -o-transition: all 0.1s ease-out;
-  -moz-transition: all 0.1s ease-out;
-  -webkit-transition: all 0.1s ease-out;
-}
-.navbar5__content__cart__inputs__buyBtn:hover {
-  bottom: 2px;
-}
+
+
+
 @media only screen and (max-width: 768px) {
   .navbar5__content {
     padding: 1rem;
