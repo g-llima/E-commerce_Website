@@ -36,7 +36,7 @@ function ProductPreview({ product, clickBackground }) {
       method: "POST",
       body: JSON.stringify({
         id: newProduct.id,
-        quantity: 1,
+        quantity: newProduct.quantity,
         price: newProduct.price,
         name: newProduct.productName.replace("---", ""),
         imgUrl: newProduct.productImageLink,
