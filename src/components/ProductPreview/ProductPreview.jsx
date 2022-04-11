@@ -28,7 +28,7 @@ function ProductPreview({ product, clickBackground }) {
     size: Object.values(newProduct.sizes[0]),
     color: Object.keys(newProduct.colors[colorSelected]),
   });
-  const { addItem, inCart } = useCart();
+  const { addItem, removeItem, inCart } = useCart();
 
   function buySolo() {
     fetch("http://localhost:5000/payment/solo", {
@@ -184,15 +184,20 @@ function ProductPreview({ product, clickBackground }) {
                 COMPRAR
               </button>
               <button
-                className="productPreview__content__body__buttons__addCart"
+                className={`productPreview__content__body__buttons__addCart ${
+                  inCart(newProduct.id) && "PP_InCart"
+                }`}
                 onClick={() => {
-                  if (!inCart(newProduct.id)) {
-                    addItem(newProduct, newProduct.quantity);
-                    clickBackground();
-                  }
+                  !inCart(newProduct.id)
+                    ? addItem(newProduct, newProduct.quantity)
+                    : removeItem(newProduct.id);
                 }}
               >
-                ADICIONAR NO CARRINHO
+                {inCart(newProduct.id) ? (
+                  <i className="fa-solid fa-circle-check"></i>
+                ) : (
+                  "ADICIONAR NO CARRINHO"
+                )}
               </button>
               <Link to={`/${removeSpecial(product.productName)}`}>
                 <button>full page</button>

@@ -269,6 +269,10 @@
     border-radius: 3px;
     border: 1px solid var(--color-dark);
 }
+.PP_InCart {
+    background: var(--color-dark);
+    color: white;
+}
 .productPreview__content__body__buttons button:hover {
     bottom: 3px;
 }
