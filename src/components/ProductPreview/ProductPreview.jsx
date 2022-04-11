@@ -199,8 +199,11 @@ function ProductPreview({ product, clickBackground }) {
                   "ADICIONAR NO CARRINHO"
                 )}
               </button>
-              <Link to={`/${removeSpecial(product.productName)}`}>
-                <button>full page</button>
+              <Link
+                to={`/${removeSpecial(product.productName)}`}
+                className="productPreview__content__body__buttons__fullPage"
+              >
+                <button>ACESSAR PRODUTO</button>
               </Link>
             </div>
           </div>
