@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Routes, Route } from "react-router-dom";
 import { CartProvider } from "react-use-cart";
 import { ProductsContext } from "./ProductsContext.js";
@@ -68,6 +69,11 @@ function removeSpecial(str) {
 
 function App() {
   const [contextValue, setContextValue] = useState(products);
+  const [data, setData] = useState([]);
+
+  axios.get("/products").then((res) => {
+    console.log(res.data);
+  });
 
   return (
     <>

@@ -17,18 +17,12 @@ mongoose
     console.log("MongoDB database connection established successfully.");
   });
 
-app.get("/api", async (req, res) => {
-  const product = new ProductModel({ productName: "Nome do Produto2" });
+app.get("/products", async (req, res) => {
+  const products = ProductModel;
 
-  try {
-    await product.save(async (err, productResult) => {
-      console.log("New product created!");
-      res.end("New product created!");
-    });
-  } catch (err) {
-    console.log(err);
-    res.end("Product not created!");
-  }
+  const productsResult = await products.find({});
+  res.send(JSON.stringify(productsResult));
+  console.log(productsResult);
 });
 
 app.post("/payment", async (req, res) => {
