@@ -22,7 +22,6 @@ app.get("/products", async (req, res) => {
 
   const productsResult = await products.find({});
   res.send(JSON.stringify(productsResult));
-  console.log(productsResult);
 });
 
 app.post("/payment", async (req, res) => {

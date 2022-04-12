@@ -68,12 +68,15 @@ function removeSpecial(str) {
 }
 
 function App() {
-  const [contextValue, setContextValue] = useState(products);
-  const [data, setData] = useState([]);
+  const [contextValue, setContextValue] = useState([]);
 
-  axios.get("/products").then((res) => {
-    console.log(res.data);
-  });
+  useEffect(() => {
+    axios.get("/products").then((res) => {
+      setContextValue(res.data);
+    });
+  }, []);
+
+  console.log(contextValue);
 
   return (
     <>
