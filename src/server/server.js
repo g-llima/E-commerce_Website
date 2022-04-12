@@ -18,9 +18,7 @@ mongoose
   });
 
 app.get("/products", async (req, res) => {
-  const products = ProductModel;
-
-  const productsResult = await products.find({});
+  const productsResult = await ProductModel.find({});
   res.send(JSON.stringify(productsResult));
 });
 
