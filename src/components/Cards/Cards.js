@@ -1,5 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
+
 import Card from "./Card/Card";
+import Skeleton from "../Skeleton/Skeleton.jsx";
+
 import "./Cards.css";
 import { useCart } from "react-use-cart";
 import ProductPreview from "../ProductPreview/ProductPreview";
@@ -39,7 +42,14 @@ function Cards() {
 
   return (
     <div className="cards">
-      {products.length == 0 && <h1>Oi</h1>}
+      {products.length == 0 &&
+        [...Array(3)].map((x, i) => (
+          <div key={i}>
+            <Skeleton type="thumbnail" />
+            <Skeleton type="text" />
+            <Skeleton type="title" />
+          </div>
+        ))}
       {products.map((item, key) => (
         <div key={key}>
           <Card
