@@ -33,12 +33,10 @@ function Cards() {
   let tempProducts = [];
 
   useEffect(() => {
-    setTimeout(() => {
-      contextValue.map((item) => {
-        tempProducts.push(item);
-      });
-      setProducts(tempProducts);
-    }, 5000);
+    contextValue.map((item) => {
+      tempProducts.push(item);
+    });
+    setProducts(tempProducts);
   }, [contextValue]);
 
   return (
