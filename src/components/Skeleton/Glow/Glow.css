@@ -9,11 +9,11 @@
 }
 
 .glow div {
-  width: 50%;
+  width: 5%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.2);
-  -webkit-transform: skewX(-20deg);
-          transform: skewX(-20deg);
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-transform: skewX(20deg);
+          transform: skewX(20deg);
   -webkit-box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05);
           box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05);
 }

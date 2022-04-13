@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 
 import Card from "./Card/Card";
 import Skeleton from "../Skeleton/Skeleton.jsx";
+import Glow from "../Skeleton/Glow/Glow.jsx";
 
 import "./Cards.css";
 import { useCart } from "react-use-cart";
@@ -45,9 +46,12 @@ function Cards() {
       {products.length == 0 &&
         [...Array(3)].map((x, i) => (
           <div key={i}>
-            <Skeleton type="thumbnail" />
-            <Skeleton type="text" />
-            <Skeleton type="title" />
+            <div>
+              <Skeleton type="thumbnail" />
+              <Skeleton type="text" />
+              <Skeleton type="title" />
+            </div>
+            <Glow />
           </div>
         ))}
       {products.map((item, key) => (
