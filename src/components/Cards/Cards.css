@@ -5,3 +5,7 @@
   align-items: center;
   justify-content: space-evenly;
 }
+.cards__skel__container {
+  overflow: hidden;
+  position: relative;
+}

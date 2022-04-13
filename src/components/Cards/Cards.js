@@ -45,7 +45,7 @@ function Cards() {
     <div className="cards">
       {products.length == 0 &&
         [...Array(3)].map((x, i) => (
-          <div key={i}>
+          <div key={i} className="cards__skel__container">
             <div>
               <Skeleton type="thumbnail" />
               <Skeleton type="text" />
