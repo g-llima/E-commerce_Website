@@ -27,15 +27,19 @@ function Cards() {
   const { contextValue } = useContext(ProductsContext);
 
   let tempProducts = [];
+
   useEffect(() => {
-    contextValue.map((item) => {
-      tempProducts.push(item);
-    });
-    setProducts(tempProducts);
+    setTimeout(() => {
+      contextValue.map((item) => {
+        tempProducts.push(item);
+      });
+      setProducts(tempProducts);
+    }, 5000);
   }, [contextValue]);
 
   return (
     <div className="cards">
+      {products.length == 0 && <h1>Oi</h1>}
       {products.map((item, key) => (
         <div key={key}>
           <Card
