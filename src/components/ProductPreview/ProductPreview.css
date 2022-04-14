@@ -234,9 +234,10 @@
 
 /* -------------- BUY & ADD TO CART BUTTONS ----------------- */
 .productPreview__content__body__buttons {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
     opacity: 0;
     animation: .5s appearDescription ease-in-out forwards;
@@ -244,25 +245,19 @@
 }
 .productPreview__content__body__buttons button {
     padding: 10px 1rem;
+    margin: 10px;
     font-size: calc(10px + 0.2vw);
     outline: none;
     cursor: pointer;
     position: relative;
     bottom: 0;
-    min-width: 200px;
+    width: 220px;
     transition: all 0.1s ease-in;
     -o-transition: all 0.1s ease-in;
     -moz-transition: all 0.1s ease-in;
     -webkit-transition: all .1s ease-in;
 }
-.productPreview__content__body__buttons__buy {
-    background: var(--color-blue);
-    color: white;
-    border-radius: 3px;
-    border: 1px solid white;
-}
 .productPreview__content__body__buttons__addCart {
-    grid-column: 2 / 3;
     background: transparent;
     color: var(--color-dark);
     border-radius: 3px;
@@ -275,13 +270,7 @@
 .productPreview__content__body__buttons button:hover {
     bottom: 3px;
 }
-.productPreview__content__body__buttons__fullPage {
-    grid-row: 2 / 3;
-    grid-column: 1 / 4;
-    width: 100%;
-}
 .productPreview__content__body__buttons__fullPage button {
-    width: 100%;
     background: var(--color-dark);
     color: white;
     border: 1px solid var(--color-dark);
@@ -297,17 +286,5 @@
         width: 100%;
         margin: 0;
         display: none;
-    }
-    .productPreview__content__body__buttons {
-        grid-gap: 5px;
-    }
-    .productPreview__content__body__buttons__buy, .productPreview__content__body__buttons__addCart {
-        grid-column: 1 / 4;
-    }
-    .productPreview__content__body__buttons__addCart {
-        grid-row: 2 / 3;
-    }
-    .productPreview__content__body__buttons__fullPage {
-        grid-row: 3 / 4;
     }
 }

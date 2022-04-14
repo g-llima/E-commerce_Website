@@ -30,30 +30,6 @@ function ProductPreview({ product, clickBackground }) {
   });
   const { addItem, removeItem, inCart } = useCart();
 
-  function buySolo() {
-    fetch("http://localhost:5000/payment/solo", {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify({
-        id: newProduct.id,
-        quantity: newProduct.quantity,
-        price: newProduct.price,
-        name: newProduct.productName.replace("---", ""),
-        imgUrl: newProduct.productImageLink,
-      }),
-    })
-      .then((res) => {
-        if (res.ok) return res.json();
-        return res.json().then((json) => Promise.reject(json));
-      })
-      .then(({ url }) => {
-        window.location = url;
-      })
-      .catch((error) => {
-        console.log("Error ", error.error);
-      });
-  }
-
   useEffect(() => {
     setNewProduct({
       ...newProduct,
@@ -175,14 +151,8 @@ function ProductPreview({ product, clickBackground }) {
 
             <hr className="productPreview__line" />
 
-            {/*---------------- PRODUCT BUY & ADD TO CART BUTTONS ------------------*/}
+            {/*---------------- PRODUCT ADD TO CART BUTTONS ------------------*/}
             <div className="productPreview__content__body__buttons">
-              <button
-                className="productPreview__content__body__buttons__buy"
-                onClick={() => buySolo()}
-              >
-                COMPRAR
-              </button>
               <button
                 className={`productPreview__content__body__buttons__addCart ${
                   inCart(newProduct.id) && "PP_InCart"
