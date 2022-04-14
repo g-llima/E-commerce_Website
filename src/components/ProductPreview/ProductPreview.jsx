@@ -53,6 +53,10 @@ function ProductPreview({ product, clickBackground }) {
     <>
       <div className="productPreviewBackground" onClick={clickBackground}></div>
       <div className="productPreview">
+        <i
+          className="fa-solid fa-xmark productPreview__closeIcon"
+          onClick={clickBackground}
+        ></i>
         <div className="productPreview__content">
           {/*---------------- PRODUCT IMAGE ------------------*/}
           <div className="productPreview__content__imgs__container">
