@@ -1,7 +1,6 @@
 .hero {
-    background: var(--color-light-blue);
-    color: white;
-    padding: 2rem;
+    color: var(--color-dark);
+    padding: 5rem 2rem;
 }
 .hero__content {
     max-width: 1400px;
@@ -22,19 +21,37 @@
     margin: 1rem 0;
 }
 .hero__content__texts__exploreBtn__container {
+    margin-top: 3rem;
     border-radius: 15px;
     display: flex;
     align-items: center;
+    cursor: pointer;
     height: 30px;
     color: var(--color-dark);
+    
+    transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
 }
 .hero__content__texts__exploreBtn__container button {
     border-radius: 15px 0 0 15px;
+    position: relative;
     padding: 0 14px;
     outline: none;
     height: 100%;
-    border: 1px solid white;
+    border: 1px solid #f0f0f0;
+    background: #f0f0f0;
     border-right: none;
+    cursor: pointer;
+
+    transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+}
+.hero__content__texts__exploreBtn__container:hover, .hero__content__texts__exploreBtn__container:hover button{
+    color: var(--color-blue);
 }
 .hero__content__texts__exploreBtn__container__icon {
     border-radius: 0 15px 15px 0;
