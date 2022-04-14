@@ -105,7 +105,7 @@
 }
 
 
-.productPreview__content__body__price {
+.productPreview__content__body__prices__price {
     font-size: 18px;
     margin: 1rem 0;
     font-weight: 500;
@@ -113,6 +113,14 @@
     bottom: 20px;
     opacity: 0;
 
+    animation: .3s appearPrice ease-in-out forwards;
+    animation-delay: .4s;
+}
+.productPreview__content__body__prices__priceBefore {
+    color: var(--color-gray);
+    text-decoration: line-through;
+    opacity: 0;
+    font-size: 12px;
     animation: .3s appearPrice ease-in-out forwards;
     animation-delay: .4s;
 }

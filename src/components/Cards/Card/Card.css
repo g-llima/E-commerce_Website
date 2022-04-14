@@ -42,10 +42,20 @@
 .card__details__title {
   overflow-wrap: break-word;
 }
-.card__details__price {
+.card__details__prices {
   margin-top: 6px;
+  display: flex;
+  align-items: center;
+}
+.card__details__prices__priceBefore {
+  font-size: 10px;
+  margin-right: 10px;
+  text-decoration: line-through;
+}
+.card__details__prices__price {
   color: #222;
 }
+
 .card__details__cartBtn {
   padding: 8px 1rem;
   position: absolute;

@@ -4,7 +4,8 @@ import { HashLink as Link } from "react-router-hash-link";
 
 import "./ProductPreview.css";
 
-function covertProductPrice(value) {
+function convertProductPrice(value) {
+  if (value === undefined) return;
   value = value.toString();
   return (
     value.substring(0, value.length - 2) +
@@ -70,9 +71,16 @@ function ProductPreview({ product, clickBackground }) {
             </h1>
 
             {/*---------------- PRODUCT PRICE ------------------*/}
-            <p className="productPreview__content__body__price">
-              R$ {covertProductPrice(newProduct.price)}
-            </p>
+            <div className="productPreview__content__body__prices">
+              {product.isPromotion && (
+                <p className="productPreview__content__body__prices__priceBefore">
+                  R$ {convertProductPrice(product.productPriceBefore)}
+                </p>
+              )}
+              <p className="productPreview__content__body__prices__price">
+                R$ {convertProductPrice(newProduct.price)}
+              </p>
+            </div>
 
             {/*---------------- PRODUCT DESCRIPTION ------------------*/}
             <p className="productPreview__content__body__description">

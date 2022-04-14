@@ -4,7 +4,8 @@ import { useCart } from "react-use-cart";
 
 import "./ProductFull.css";
 
-function covertProductPrice(value) {
+function convertProductPrice(value) {
+  if (value === undefined) return;
   value = value.toString();
   return (
     value.substring(0, value.length - 2) +
@@ -55,9 +56,16 @@ function ProductFull({ product }) {
           </h1>
 
           {/*---------------- PRICE ------------------*/}
-          <h2 className="productFull__content__texts__title__price">
-            R$ {covertProductPrice(product.price)}
-          </h2>
+          <div className="productFull__content__texts__title__prices">
+            {product.isPromotion && (
+              <p className="productFull__content__texts__title__prices__priceBefore">
+                R$ {convertProductPrice(product.productPriceBefore)}
+              </p>
+            )}
+            <h2 className="productFull__content__texts__title__prices__price">
+              R$ {convertProductPrice(product.price)}
+            </h2>
+          </div>
 
           {/*---------------- COLORS ------------------*/}
           <div className="productFull__content__texts__colors">

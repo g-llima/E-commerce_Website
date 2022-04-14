@@ -27,9 +27,14 @@
     min-width: 300px;
     max-width: 800px;
 }
-.productFull__content__texts__title__price {
+.productFull__content__texts__title__prices {
     font-size: 18px;
     margin: 2rem 0;
+}
+.productFull__content__texts__title__prices__priceBefore {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: var(--color-gray);
 }
 
 /* ---------------- COLORS ------------ */

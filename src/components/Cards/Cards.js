@@ -16,6 +16,8 @@ function convertProductName(str) {
   return str;
 }
 function covertProductPrice(value) {
+  if (value === undefined) return;
+
   value = value.toString();
   return (
     value.substring(0, value.length - 2) +
@@ -64,6 +66,8 @@ function Cards() {
             onCart={inCart(item.id)}
             colors={item.colors}
             isInCart={inCart(item.id)}
+            isPromotion={item.isPromotion}
+            productPriceBefore={covertProductPrice(item.productPriceBefore)}
             clickBtn={() =>
               isOpenPreview === key
                 ? setIsOpenPreview(-1)

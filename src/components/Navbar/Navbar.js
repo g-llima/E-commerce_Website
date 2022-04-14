@@ -23,19 +23,19 @@ function convertProductName(str) {
 
 const navbarItems = [
   {
-    name: "ITEM",
+    name: "CASUAL",
     link: "/",
   },
   {
-    name: "ITEM",
+    name: "ESPORTIVA",
     link: "/",
   },
   {
-    name: "ITEM",
+    name: "ACESSÓRIOS",
     link: "/",
   },
   {
-    name: "ITEM",
+    name: "PROMOÇÃO",
     link: "/",
   },
 ];
