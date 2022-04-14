@@ -5,18 +5,39 @@
 }
 
 .skeleton.text {
-  width: 100%;
+  width: 0;
   height: 12px;
+  animation: 0.9s appearTextSkel ease-out forwards;
+  animation-delay: .7s;
 }
 
 .skeleton.title {
-  width: 50%;
+  width: 0;
   height: 20px;
   margin-bottom: 15px;
+  animation: 0.9s appearTitleSkel ease-out forwards;
+  animation-delay: .7s;
 }
 
 .skeleton.thumbnail {
   width: 300px;
   height: 400px;
+}
+
+@keyframes appearTextSkel {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes appearTitleSkel {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 50%;
+  }
 }
 /*# sourceMappingURL=Skeleton.css.map */
