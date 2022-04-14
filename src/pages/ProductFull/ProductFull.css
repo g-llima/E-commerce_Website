@@ -8,18 +8,40 @@
     display: flex;
     justify-content: space-between;
 }
+/* ----------- IMAGES -------------*/
 .productFull__content__img {
     display: flex;
-    min-width: 300px;
+    width: 100%;
+    max-width: 600px;
     flex-direction: column;
     align-items: center;
 }
-.productFull__content__img img {
+.productFull__content__img__mainImg {
     width: 100%;
     height: 600px;
+    padding: 0 1rem;
     object-fit: cover;
     border-radius: 5px;
 }
+.productFull__content__img__icons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 1rem 0;
+}
+.productFull__content__img__icons__icon {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+
+
+
+
 .productFull__content__texts {
     display: flex;
     margin: 0 1rem;

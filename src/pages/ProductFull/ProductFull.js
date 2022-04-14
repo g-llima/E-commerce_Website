@@ -14,9 +14,18 @@ function convertProductPrice(value) {
   );
 }
 
+const imgTest = [
+  "https://technext.github.io/cozastore/images/product-14.jpg",
+  "https://stickerly.pstatic.net/sticker_pack/EpE633NkJy54pdwXnftzJA/TVJ7PX/43/1f32f4f2-afec-46a1-8788-5750cc7e3019.png",
+  "https://i1.sndcdn.com/artworks-bvVASuE05viMMAio-Xre1qw-t500x500.jpg",
+  "https://i.kym-cdn.com/entries/icons/original/000/038/638/the_wock.jpg",
+];
+
 function ProductFull({ product }) {
   const [newProduct, setNewProduct] = useState(product);
   const [colorSelected, setColorSelected] = useState(0);
+  const [imageSelected, setImageSelected] = useState(0);
+
   const [productInput, setProductInput] = useState({
     size: Object.values(newProduct.sizes[0]),
     color: Object.keys(newProduct.colors[colorSelected]),
@@ -42,12 +51,30 @@ function ProductFull({ product }) {
     });
   }, [colorSelected]);
 
+  console.log(imageSelected);
+
   return (
     <div className="productFull">
       <div className="productFull__content">
         {/*---------------- PRODUCT IMAGE ------------------*/}
         <div className="productFull__content__img">
-          <img src={product.productImageLink} alt={product.productName} />
+          <img
+            // src={product.productImageLink}
+            src={imgTest[imageSelected]}
+            alt={product.productName}
+            className="productFull__content__img__mainImg"
+          />
+          <div className="productFull__content__img__icons">
+            {imgTest.map((x, i) => (
+              <img
+                className="productFull__content__img__icons__icon"
+                src={x}
+                alt={i}
+                key={i}
+                onClick={() => setImageSelected(i)}
+              />
+            ))}
+          </div>
         </div>
         <div className="productFull__content__texts">
           {/*---------------- TITLE ------------------*/}
