@@ -15,9 +15,13 @@ function Hero() {
             Consequuntur incidunt nobis excepturi, vel consectetur provident
             molestiae quam nihil. Accusantium, libero.
           </p>
-          <button className="hero__content__texts__exploreBtn">
-            Explorar!
-          </button>
+
+          <div className="hero__content__texts__exploreBtn__container">
+            <button>Explorar!</button>
+            <div className="hero__content__texts__exploreBtn__container__icon">
+              <i className="fa-solid fa-angles-right"></i>
+            </div>
+          </div>
         </div>
 
         <div className="hero__content__imgWrapper">
