@@ -11,6 +11,7 @@
 }
 .hero__content__texts {
     max-width: 600px;
+    min-width: 300px;
 }
 .hero__content__texts__title {
     font-weight: 700;
@@ -28,11 +29,6 @@
     cursor: pointer;
     height: 30px;
     color: var(--color-dark);
-    
-    transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -webkit-transition: all .2s ease-in-out;
 }
 .hero__content__texts__exploreBtn__container button {
     border-radius: 15px 0 0 15px;
@@ -50,8 +46,12 @@
     -moz-transition: all .2s ease-in-out;
     -webkit-transition: all .2s ease-in-out;
 }
-.hero__content__texts__exploreBtn__container:hover, .hero__content__texts__exploreBtn__container:hover button{
+.hero__content__texts__exploreBtn__container:hover, 
+.hero__content__texts__exploreBtn__container:hover button{
     color: var(--color-blue);
+}
+.hero__content__texts__exploreBtn__container:hover .hero__content__texts__exploreBtn__container__icon{
+    background: #f0f0f0;
 }
 .hero__content__texts__exploreBtn__container__icon {
     border-radius: 0 15px 15px 0;
@@ -61,4 +61,27 @@
     height: 100%;
     border-left: none;
     background: #dbdbdb;
+    transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+}
+
+.hero__content__imgWrapper img {
+    width: 100%;
+    min-width: 300px;
+}
+@media only screen and (max-width: 768px) {
+    .hero__content {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .hero__content__imgWrapper {
+        margin-bottom: 1rem;
+    }
+    .hero__content__texts {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
