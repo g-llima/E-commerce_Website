@@ -121,10 +121,6 @@ function Navbar() {
           {/* ----------------- CART PRODUCTS------------------- */}
           {isEmpty ? (
             <div className="navbar5__cart__empty">
-              <i
-                className="fa-solid fa-cart-plus"
-                onClick={() => setClickCart(false)}
-              ></i>
               <h2>SEU CARRINHO ESTÁ VAZIO</h2>
               <p>🙁</p>
             </div>

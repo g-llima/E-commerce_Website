@@ -49,33 +49,6 @@ app.post("/payment", async (req, res) => {
   }
 });
 
-app.post("/payment/solo", async (req, res) => {
-  try {
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
-      mode: "payment",
-      line_items: [
-        {
-          price_data: {
-            currency: "brl",
-            product_data: {
-              name: req.body.name,
-              images: [req.body.imgUrl],
-            },
-            unit_amount: req.body.price,
-          },
-          quantity: req.body.quantity,
-        },
-      ],
-      success_url: `http://localhost:3000/sucess`,
-      cancel_url: `http://localhost:3000`,
-    });
-    res.json({ url: session.url });
-  } catch (e) {
-    res.status(500).json({ error: e.message });
-  }
-});
-
 app.listen(5000, () => {
   console.log("Listening port 5000.");
 });

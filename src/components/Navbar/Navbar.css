@@ -235,7 +235,7 @@
   color: var(--color-dark);
 }
 
-/* -------------------- CART EMPY --------------------*/
+/* -------------------- CART EMPTY --------------------*/
 .navbar5__cart__empty {
   color: var(--color-dark);
   display: flex;
@@ -243,18 +243,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 5rem;
-  height: 180px;
-}
-.navbar5__cart__empty i {
-  font-size: 3rem;
-  transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  cursor: pointer;
-}
-.navbar5__cart__empty i:hover {
-  color: var(--color-light-blue);
+  height: 100px;
 }
 .navbar5__cart__empty p {
   font-size: 2rem;
@@ -268,6 +257,7 @@
 }
 .navbar5__cart__empty h2 {
   margin-top: 1rem;
+  font-size: 1.2rem;
 }
 
 
@@ -311,17 +301,16 @@
     left: 0;
     align-items: unset;
     background: #fff;
-    border-top: 1px solid var(--color-gray);
-    box-shadow: 3px 1px 2px var(--color-gray);
+    box-shadow: 3px 1px 2px #dbdbdb;
 
     height: 0;
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
-    transition: all 0.5s;
-    -o-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -webkit-transition: all 0.5s;
+    transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
   }
   .nav5MobileActive {
     visibility: visible;
