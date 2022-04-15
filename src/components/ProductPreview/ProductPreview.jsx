@@ -108,7 +108,15 @@ function ProductPreview({ product, clickBackground }) {
                       style={{ backgroundColor: color }}
                       onClick={() => setColorSelected(index)}
                     >
-                      <i className="fa-solid fa-check"></i>
+                      <i
+                        className="fa-solid fa-check"
+                        // CHECK IF SELECTED COLOR IS WHITE
+                        style={{
+                          color:
+                            Object.keys(product.colors[colorSelected])[0] ===
+                              "Branco" && "#222",
+                        }}
+                      ></i>
                     </span>
                   ))
                 )}
