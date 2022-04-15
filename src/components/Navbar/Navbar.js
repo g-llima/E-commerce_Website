@@ -74,7 +74,7 @@ function Navbar() {
             quantity: item.quantity,
             price: item.price,
             name: item.productName.replace("---", ""),
-            imgUrl: item.productImageLink,
+            imgUrl: item.productImageLink[0],
           };
         }),
       }),
@@ -131,7 +131,7 @@ function Navbar() {
                   {/* ----------------- CART PRODUCT IMAGE------------------- */}
                   <div className="navbar5__cart__products__imgWrapper">
                     <img
-                      src={item.productImageLink}
+                      src={item.productImageLink[0]}
                       alt={convertProductName(item.productName)}
                     />
                     <i
