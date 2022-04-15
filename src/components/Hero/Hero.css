@@ -60,7 +60,7 @@
     padding: 0 14px;
     height: 100%;
     border-left: none;
-    background: #dbdbdb;
+    background: var(--color-light-gray);
     transition: all .2s ease-in-out;
     -o-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;

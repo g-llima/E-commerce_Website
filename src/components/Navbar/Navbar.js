@@ -257,6 +257,11 @@ function Navbar() {
             <i className={`fas fa-${openNav ? "times" : "bars"}`}></i>
           </div>
         </nav>
+
+        <div className="navbar5__search">
+          <input type="text" placeholder="Pesquisar" />
+          <i className="fa-solid fa-magnifying-glass"></i>
+        </div>
       </header>
     </>
   );
