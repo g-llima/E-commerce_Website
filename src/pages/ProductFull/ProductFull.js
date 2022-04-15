@@ -18,6 +18,7 @@ function ProductFull({ product }) {
   const [newProduct, setNewProduct] = useState(product);
   const [colorSelected, setColorSelected] = useState(0);
   const [imageSelected, setImageSelected] = useState(0);
+  const [zoomImg, setZoomImg] = useState([]);
 
   const [productInput, setProductInput] = useState({
     size: Object.values(newProduct.sizes[0]),
@@ -49,12 +50,29 @@ function ProductFull({ product }) {
       <div className="productFull__content">
         {/*---------------- PRODUCT IMAGE ------------------*/}
         <div className="productFull__content__img">
-          <img
-            // src={product.productImageLink}
-            src={product.productImageLink[imageSelected]}
-            alt={product.productName}
-            className="productFull__content__img__mainImg"
-          />
+          <div
+            className="productFull__content__img__mainImg__wrapper"
+            onMouseMove={(e) => {
+              setZoomImg({
+                x: e.clientX - 5 * (window.innerWidth / 16),
+                y: e.clientY - 4 * (window.innerHeight / 10),
+                isOver: true,
+              });
+            }}
+            onMouseLeave={() => setZoomImg({ x: 0, y: 0, isOver: false })}
+          >
+            <img
+              // src={product.productImageLink}
+              src={product.productImageLink[imageSelected]}
+              alt={product.productName}
+              className="productFull__content__img__mainImg"
+              style={{
+                transform: zoomImg.isOver && "scale(2)",
+                bottom: zoomImg.y + "px",
+                right: zoomImg.x + "px",
+              }}
+            />
+          </div>
           <div className="productFull__content__img__icons">
             {product.productImageLink.map((x, i) => (
               <img
