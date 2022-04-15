@@ -57,7 +57,7 @@ function Cards() {
       {products.map((item, key) => (
         <div key={key}>
           <Card
-            productImage={item.productImageLink}
+            productImage={item.productImageLink[0]}
             productName={convertProductName(item.productName)}
             productPrice={covertProductPrice(item.price)}
             productType={item.productType}

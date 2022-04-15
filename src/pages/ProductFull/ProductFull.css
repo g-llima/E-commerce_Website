@@ -25,16 +25,18 @@
 }
 .productFull__content__img__icons {
     display: flex;
-    flex-wrap: wrap;
     width: 100%;
-    justify-content: space-evenly;
     padding: 1rem 0;
+    overflow: auto;
 }
 .productFull__content__img__icons__icon {
     width: 100px;
+    min-width: 100px; /* BUG FIX */
     height: 100px;
+    margin: 0 1rem 0 0;
     object-fit: cover;
-    border: 1px solid black;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -76,6 +78,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    border: 1px solid #dbdbdb;
     margin-right: 1rem;
     cursor: pointer;
     display: flex;

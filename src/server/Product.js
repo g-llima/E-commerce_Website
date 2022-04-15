@@ -6,7 +6,7 @@ const ProductSchema = new mongoose.Schema({
     required: true,
   },
   productImageLink: {
-    type: String,
+    type: Array,
     required: true,
   },
   productDescription: {

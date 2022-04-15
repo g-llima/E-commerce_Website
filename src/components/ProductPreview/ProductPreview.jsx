@@ -61,7 +61,7 @@ function ProductPreview({ product, clickBackground }) {
         <div className="productPreview__content">
           {/*---------------- PRODUCT IMAGE ------------------*/}
           <div className="productPreview__content__imgs__container">
-            <img src={product.productImageLink} alt={product.productName} />
+            <img src={product.productImageLink[0]} alt={product.productName} />
           </div>
 
           <div className="productPreview__content__body">
