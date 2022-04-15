@@ -285,7 +285,11 @@
 }
 
 
-
+@media only screen and (max-width: 1024px) {
+  .navbar5__content__items__item {
+    margin: 1rem;
+  }
+}
 @media only screen and (max-width: 768px) {
   .navbar5__content {
     padding: 1rem;

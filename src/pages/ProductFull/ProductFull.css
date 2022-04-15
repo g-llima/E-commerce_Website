@@ -18,6 +18,7 @@
 }
 .productFull__content__img__mainImg {
     width: 100%;
+    max-width: 600px;
     height: 600px;
     padding: 0 1rem;
     object-fit: cover;
@@ -26,6 +27,7 @@
 .productFull__content__img__icons {
     display: flex;
     width: 100%;
+    max-width: 600px;
     padding: 1rem 0;
     overflow: auto;
 }
@@ -33,7 +35,7 @@
     width: 100px;
     min-width: 100px; /* BUG FIX */
     height: 100px;
-    margin: 0 1rem 0 0;
+    margin: 0 1rem;
     object-fit: cover;
     border: 1px solid #dbdbdb;
     border-radius: 5px;
@@ -107,8 +109,9 @@
     margin: 3rem 0;
     max-width: 500px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 .productFull__content__texts__buttons__size {
     display: flex;
@@ -133,9 +136,10 @@
     height: 50px;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1rem;
     border: 1px solid #dbdbdb;
     padding: 0 5px;
+    margin: 5px;
 }
 .productFull__content__texts__buttons__qnt i {
     cursor: pointer;
@@ -158,6 +162,7 @@
     outline: none;
     border: 1px solid var(--color-dark);
     padding: 0 15px;
+    margin: 5px;
     cursor: pointer;
     border-radius: 5px;
     transition: all .2s ease-in-out;
@@ -216,6 +221,14 @@
 }
 .productFull__content__texts__share__icons i:hover {
     color: var(--color-light-blue);
+}
+@media only screen and (max-width: 1024px) {
+    .productFull__content__img__mainImg {
+        max-width: 450px;
+    }
+    .productFull__content__img__icons {
+        max-width: 450px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
