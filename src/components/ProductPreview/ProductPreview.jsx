@@ -178,9 +178,12 @@ function ProductPreview({ product, clickBackground }) {
                   inCart(newProduct.id) && "PP_InCart"
                 }`}
                 onClick={() => {
-                  !inCart(newProduct.id)
-                    ? addItem(newProduct, newProduct.quantity)
-                    : removeItem(newProduct.id);
+                  if (inCart(newProduct.id)) {
+                    removeItem(newProduct.id);
+                  } else {
+                    addItem(newProduct, newProduct.quantity);
+                    clickBackground();
+                  }
                 }}
               >
                 {inCart(newProduct.id) ? (

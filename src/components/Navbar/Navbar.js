@@ -7,6 +7,34 @@ import "./Navbar.css";
 
 function covertProductPrice(value) {
   value = value.toString();
+
+  if (value > 10000000) {
+    return (
+      value.substring(0, value.length - 5) +
+      "." +
+      value.substring(3, value.length - 2) +
+      "," +
+      value.substring(value.length - 2)
+    );
+  }
+  if (value > 1000000) {
+    return (
+      value.substring(0, value.length - 5) +
+      "." +
+      value.substring(2, value.length - 2) +
+      "," +
+      value.substring(value.length - 2)
+    );
+  }
+  if (value > 100000) {
+    return (
+      value.substring(0, value.length - 5) +
+      "." +
+      value.substring(1, value.length - 2) +
+      "," +
+      value.substring(value.length - 2)
+    );
+  }
   return (
     value.substring(0, value.length - 2) +
     "," +

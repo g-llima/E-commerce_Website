@@ -371,4 +371,7 @@
   .navbar5__content__items__item {
     padding: 10px 1rem;
   }
+  .navbar5__cart__products {
+    max-height: 650px;
+  }
 }
