@@ -1,4 +1,5 @@
-footer {
+.footer {
+    margin-top: 5rem;
     background:
     radial-gradient(var(--color-dark) 3px, transparent 4px),
     radial-gradient(var(--color-dark) 3px, transparent 4px),
@@ -50,4 +51,37 @@ footer {
 .footer__content__author__texts p {
     margin-left: 1rem;
     max-width: 500px;
+}
+
+/*-------------- FOOTEST --------------*/
+.footest{
+    background: #444;
+}
+.footest__content {
+    max-width: 1440px;
+    padding: 3rem 1rem;
+    color: #fff;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footest__content h4 {
+    margin-bottom: 10px;
+    color: var(--color-light-gray);
+}
+.footest__content li {
+    font-size: 14px;
+    margin: 2px 0;
+    text-decoration: underline;
+}
+.footest__content a:hover {
+    color: #999;
+}
+.footest__content__social__icons {
+    display: flex;
+}
+.footest__content__social__icons i{
+    margin-right: 10px;
+    font-size: 1.5rem;
 }
