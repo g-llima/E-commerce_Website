@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "react-use-cart";
 import Scrollspy from "react-scrollspy";
 import "./Navbar.css";
@@ -52,6 +53,7 @@ function Navbar() {
     removeItem,
   } = useCart();
   const [scrolled, setScrolled] = useState(false);
+  const [search, setSearch] = useState("");
 
   window.addEventListener("resize", () => setopenNav(false));
   window.addEventListener("scroll", () => {
@@ -62,6 +64,8 @@ function Navbar() {
       setScrolled(false);
     }
   });
+
+  let navigate = useNavigate();
 
   function buy() {
     fetch("http://localhost:5000/payment", {
@@ -259,8 +263,21 @@ function Navbar() {
         </nav>
 
         <div className="navbar5__search">
-          <input type="text" placeholder="Pesquisar" />
-          <i className="fa-solid fa-magnifying-glass"></i>
+          <form
+            className="navbar5__search__form"
+            onSubmit={() => navigate(`/buscar/s=${search}`)}
+          >
+            <input
+              type="text"
+              placeholder="Pesquisar"
+              defaultValue={search}
+              onChange={(e) => setSearch(e.target.value)}
+              required
+            />
+            <button type="submit">
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
         </div>
       </header>
     </>
