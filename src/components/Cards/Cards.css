@@ -1,9 +1,10 @@
 .cards {
-  margin: 3rem 0;
+  margin: 3rem auto 3rem auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
+  max-width: 1400px;
 }
 .cards__skel__container {
   overflow: hidden;

@@ -129,65 +129,70 @@ function Navbar() {
               <p>🙁</p>
             </div>
           ) : (
-            <div className="navbar5__cart__products">
-              {items.map((item, index) => (
-                <div className="navbar5__cart__products__container" key={index}>
-                  {/* ----------------- CART PRODUCT IMAGE------------------- */}
-                  <div className="navbar5__cart__products__imgWrapper">
-                    <img
-                      src={item.productImageLink[0]}
-                      alt={convertProductName(item.productName)}
-                    />
-                    <i
-                      className="fa-solid fa-xmark navbar5__cart__products__imgWrapper__removeicon"
-                      onClick={() => removeItem(item.id)}
-                    ></i>
-                  </div>
-
-                  {/* ----------------- CART PRODUCT TEXT------------------- */}
-                  <div className="navbar5__cart__products__texts">
-                    <div className="navbar5__cart__products__texts__info">
-                      <p>{convertProductName(item.productName)}</p>
-                      <p className="navbar5__cart__products__texts__info__subinfo">
-                        Cor: <span>{getColor(item)}</span>
-                      </p>
-                      <p className="navbar5__cart__products__texts__info__subinfo">
-                        Tamanho: <span>{getSize(item)}</span>
-                      </p>
-                    </div>
-
-                    {/* ----------------- CART PRODUCT QUANTITY------------------- */}
-                    <div className="navbar5__cart__products__texts__quantityBtns">
+            <>
+              <div className="navbar5__cart__products">
+                {items.map((item, index) => (
+                  <div
+                    className="navbar5__cart__products__container"
+                    key={index}
+                  >
+                    {/* ----------------- CART PRODUCT IMAGE------------------- */}
+                    <div className="navbar5__cart__products__imgWrapper">
+                      <img
+                        src={item.productImageLink[0]}
+                        alt={convertProductName(item.productName)}
+                      />
                       <i
-                        className="fa-solid fa-plus"
-                        onClick={() =>
-                          updateItemQuantity(item.id, item.quantity + 1)
-                        }
-                      ></i>
-                      <i
-                        className="fa-solid fa-minus"
-                        onClick={() =>
-                          updateItemQuantity(item.id, item.quantity - 1)
-                        }
+                        className="fa-solid fa-xmark navbar5__cart__products__imgWrapper__removeicon"
+                        onClick={() => removeItem(item.id)}
                       ></i>
                     </div>
 
-                    {/* ----------------- CART PRODUCT PRICE & QUANTITY ------------------- */}
-                    <div className="navbar5__cart__products__texts__bottom">
-                      <p>Qnt: {item.quantity}</p>
-                      <p className="navbar5__cart__products__texts__bottom__price">
-                        R$ {covertProductPrice(item.price)}
-                      </p>
+                    {/* ----------------- CART PRODUCT TEXT------------------- */}
+                    <div className="navbar5__cart__products__texts">
+                      <div className="navbar5__cart__products__texts__info">
+                        <p>{convertProductName(item.productName)}</p>
+                        <p className="navbar5__cart__products__texts__info__subinfo">
+                          Cor: <span>{getColor(item)}</span>
+                        </p>
+                        <p className="navbar5__cart__products__texts__info__subinfo">
+                          Tamanho: <span>{getSize(item)}</span>
+                        </p>
+                      </div>
+
+                      {/* ----------------- CART PRODUCT QUANTITY------------------- */}
+                      <div className="navbar5__cart__products__texts__quantityBtns">
+                        <i
+                          className="fa-solid fa-plus"
+                          onClick={() =>
+                            updateItemQuantity(item.id, item.quantity + 1)
+                          }
+                        ></i>
+                        <i
+                          className="fa-solid fa-minus"
+                          onClick={() =>
+                            updateItemQuantity(item.id, item.quantity - 1)
+                          }
+                        ></i>
+                      </div>
+
+                      {/* ----------------- CART PRODUCT PRICE & QUANTITY ------------------- */}
+                      <div className="navbar5__cart__products__texts__bottom">
+                        <p>Qnt: {item.quantity}</p>
+                        <p className="navbar5__cart__products__texts__bottom__price">
+                          R$ {covertProductPrice(item.price)}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
 
-              {/* ----------------- CART PRODUCTS TOTAL------------------- */}
+                {/* ----------------- CART PRODUCTS TOTAL------------------- */}
+              </div>
               <p className="navbar5__cart__products__valorTotal">
                 Valor total: R$ {covertProductPrice(cartTotal)}
               </p>
-            </div>
+            </>
           )}
 
           {/* ----------------- CART PRODUCT BUY BUTTON------------------- */}
