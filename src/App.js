@@ -5,6 +5,7 @@ import { CartProvider } from "react-use-cart";
 import { ProductsContext } from "./ProductsContext.js";
 
 import Navbar from "./components/Navbar/Navbar.js";
+import SearchPage from "./pages/SearchPage/SearchPage.js";
 import HomePage from "./pages/HomePage.js";
 import SuccesBuy from "./pages/SuccessBuy";
 import ProductFull from "./pages/ProductFull/ProductFull";
@@ -84,6 +85,7 @@ function App() {
           <Routes>
             <Route path="*" element={<HomePage />} />
             <Route path="/success" element={<SuccesBuy />} />
+            <Route path="/buscar/:s" element={<SearchPage />} />
 
             {contextValue.map((item, index) => (
               <Route
