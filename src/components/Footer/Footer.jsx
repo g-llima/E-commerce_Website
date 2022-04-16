@@ -89,6 +89,9 @@ function Footer() {
             </div>
           </div>
         </div>
+        <p className="footest__copy">
+          Copyright &copy;, Todos os direitos reservados - 2022
+        </p>
       </div>
     </footer>
   );
