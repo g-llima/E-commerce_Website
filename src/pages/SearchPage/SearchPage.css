@@ -1,3 +1,9 @@
+.searchPage {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .searchPage__container {
     margin: 3rem 0;
     display: flex;

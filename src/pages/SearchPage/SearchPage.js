@@ -7,6 +7,7 @@ import { HashLink as Link } from "react-router-hash-link";
 import "./SearchPage.css";
 
 import Card from "../../components/Cards/Card/Card";
+import Footer from "../../components/Footer/Footer";
 import ProductPreview from "../../components/ProductPreview/ProductPreview";
 
 function SearchPage() {
@@ -84,6 +85,7 @@ function SearchPage() {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }
