@@ -1,0 +1,53 @@
+footer {
+    background:
+    radial-gradient(var(--color-dark) 3px, transparent 4px),
+    radial-gradient(var(--color-dark) 3px, transparent 4px),
+    linear-gradient(var(--color-dark) 4px, transparent 0),
+    linear-gradient(45deg, transparent 74px, transparent 75px, #dbdbdb45 75px, #dbdbdb45 76px, transparent 1px),
+    linear-gradient(-45deg, transparent 75px, transparent 76px, #dbdbdb45 76px, #dbdbdb45 77px, transparent 1px),
+    var(--color-dark);
+    background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
+    background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+}
+.footer__content {
+    max-width: 1440px;
+    padding: 3rem 1rem;
+    color: var(--color-light-gray);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer__content a:hover {
+    color: var(--color-light-blue);
+}
+/*-------------- FOOTER FIRST COLUMN --------------*/
+.footer__content__methods {
+    display: flex;
+    flex-direction: column;
+}
+.footer__content__methods__cards {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.footer__content__methods__cards i {
+    font-size: 2.2rem;
+}
+/*-------------- FOOTER SECOND COLUMN --------------*/
+.footer__content__author__texts {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+.footer__content__author__texts i {
+    background: var(--color-light-gray);
+    padding: 10px;
+    border-radius: 50%;
+    color: var(--color-dark);
+}
+.footer__content__author__texts p {
+    margin-left: 1rem;
+    max-width: 500px;
+}
