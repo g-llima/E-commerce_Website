@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { ProductsContext } from "../../ProductsContext";
 import { useCart } from "react-use-cart";
+import { HashLink as Link } from "react-router-hash-link";
 
 import "./SearchPage.css";
 
@@ -48,6 +49,12 @@ function SearchPage() {
   return (
     <div className="searchPage">
       <div className="searchPage__container">
+        {products.length == 0 && (
+          <div className="searchPage__container__notFound">
+            <h1>Nenhum produto encontrado.</h1>
+            <Link to="/">Voltar para a página inicial</Link>
+          </div>
+        )}
         {products.map((item, index) => (
           <div key={index}>
             <Card

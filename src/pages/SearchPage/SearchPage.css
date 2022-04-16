@@ -5,3 +5,19 @@
     align-items: center;
     justify-content: space-evenly;
 }
+.searchPage__container__notFound {
+    text-align: center;
+    animation: 0.3s searchNotFoundAppear ease-out;
+}
+.searchPage__container__notFound a { 
+    color: var(--color-light-blue);
+}
+
+@keyframes searchNotFoundAppear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
