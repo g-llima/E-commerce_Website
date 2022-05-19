@@ -171,7 +171,7 @@ function ProductPreview({ product, clickBackground }) {
 
             <hr className="productPreview__line" />
 
-            {/*---------------- PRODUCT ADD TO CART BUTTONS ------------------*/}
+            {/*---------------- PRODUCT ADD TO CART BUTTONS -----------------*/}
             <div className="productPreview__content__body__buttons">
               <button
                 className={`productPreview__content__body__buttons__addCart ${

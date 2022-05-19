@@ -96,7 +96,7 @@ function Navbar() {
   let navigate = useNavigate();
 
   function buy() {
-    fetch("http://localhost:5000/payment", {
+    fetch("https://engcom.herokuapp.com/payment", {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify({

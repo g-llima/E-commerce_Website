@@ -19,39 +19,52 @@ function removeSpecial(str) {
   str = str.replace(/[^a-zA-Z ]/g, "");
   str = str.replace(/\s/g, "-");
   return str;
+  
 }
 
 function App() {
   const [contextValue, setContextValue] = useState([]);
 
   useEffect(async () => {
-    await axios.get("/products").then((res) => {
+    await axios.get("https://engcom.herokuapp.com/products").then((res) => {
       setContextValue(res.data);
     });
   }, []);
 
-  return (
-    <>
-      <ProductsContext.Provider value={{ contextValue, setContextValue }}>
-        <CartProvider>
-          <Navbar />
-          <Routes>
-            <Route path="*" element={<HomePage />} />
-            <Route path="/success" element={<SuccesBuy />} />
-            <Route path="/buscar/:s" element={<SearchPage />} />
 
-            {contextValue.map((item, index) => (
-              <Route
-                key={index}
-                path={`/${removeSpecial(item.productName)}`}
-                element={<ProductFull product={item} />}
-              />
-            ))}
-          </Routes>
-        </CartProvider>
-      </ProductsContext.Provider>
-    </>
-  );
+  if (contextValue.length == 0) {
+    return (
+      <>
+        <div className="loading_screen">
+          <img src="./Imgs/loading.svg"/>
+          <h3>Carregando...</h3>
+        </div>
+      </>
+    )
+  } else {
+    return (
+      <>
+        <ProductsContext.Provider value={{ contextValue, setContextValue }}>
+          <CartProvider>
+            <Navbar />
+            <Routes>
+              <Route path="*" element={<HomePage />} />
+              <Route path="/success" element={<SuccesBuy />} />
+              <Route path="/buscar/:s" element={<SearchPage />} />
+  
+              {contextValue.map((item, index) => (
+                <Route
+                  key={index}
+                  path={`/${removeSpecial(item.productName)}`}
+                  element={<ProductFull product={item} />}
+                />
+              ))}
+            </Routes>
+          </CartProvider>
+        </ProductsContext.Provider>
+      </>
+    );
+  }
 }
 
 export default App;

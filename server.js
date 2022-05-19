@@ -4,7 +4,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
 
-const ProductModel = require("./Product.js");
+const ProductModel = require("./src/server/Product.js");
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors());
@@ -17,12 +18,12 @@ mongoose
     console.log("MongoDB database connection established successfully.");
   });
 
-app.get("/products", async (req, res) => {
+app.get("https://engcom.herokuapp.com/products", async (req, res) => {
   const productsResult = await ProductModel.find({});
   res.send(JSON.stringify(productsResult));
 });
 
-app.post("/payment", async (req, res) => {
+app.post("https://engcom.herokuapp.com/payment", async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
@@ -40,8 +41,8 @@ app.post("/payment", async (req, res) => {
           quantity: item.quantity,
         };
       }),
-      success_url: `http://localhost:3000/sucess`,
-      cancel_url: `http://localhost:3000`,
+      success_url: `https://legendary-piroshki-3b954e.netlify.app`,
+      cancel_url: `https://legendary-piroshki-3b954e.netlify.app`,
     });
     res.json({ url: session.url });
   } catch (e) {
@@ -49,6 +50,6 @@ app.post("/payment", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("Listening port 5000.");
+app.listen(port, () => {
+  console.log("Listening port " + port + ".");
 });
